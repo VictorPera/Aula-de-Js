@@ -11,8 +11,4 @@ function  ligaDesliga(){
         interruptor.innerText = 'Ligar';
 
     }
-
-
-    
-    
 }
