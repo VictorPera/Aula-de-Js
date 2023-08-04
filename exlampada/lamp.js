@@ -9,6 +9,5 @@ function  ligaDesliga(){
     }else{
         lampada.src = "/exlampada/img/lampadaApagada.jpeg";
         interruptor.innerText = 'Ligar';
-
     }
 }
