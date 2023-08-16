@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulário de Contatos</title>
+</head>
+<body>
+    <h2>Formulário de Contatos</h2>
+    <form onsubmit="return validarFormulario();">
+        <label for="telefone">Telefone Celular:</label>
+        <input type="text" id="telefone" name="telefone" placeholder="(0XX)9XXXX-XXXX" required>
+        <br>
+
+        <label for="endereco">Endereço:</label>
+        <input type="text" id="endereco" name="endereco" required>
+        <br>
+
+        <label for="cep">CEP:</label>
+        <input type="text" id="cep" name="cep" placeholder="XXXXX-XXX" required>
+        <br>
+
+        <label for="cpf">CPF:</label>
+        <input type="text" id="cpf" name="cpf" placeholder="XXX.XXX.XXX-XX" required>
+        <br>
+
+        <button type="submit">Enviar</button>
+    </form>
+
+    <script src="/lista1/ex4/main3.js"></script>
+</body>
+</html>
