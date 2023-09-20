@@ -4,21 +4,26 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Document</title>
-        <script src="https://cdn.tailwindcss.com"></script>
-    </head>
-    <body class="bg-slate-300">
+        <title>Carrossel De Imagens</title>
+        <link rel="stylesheet" href="style.css">
+        </head>
+    <body>
 
-        <main class="flex justify-center p-10">
-            <div class="carousel flex flex-col items-center w-screen">
-                <div class="carousel-container ">
-                    <img class="w-90 h-[683px] rounded-lg shadow-2xl" src="./img/imagem1.jpg" alt="Imagem 1">
-                    <img class="w-90 h-[683px] rounded-lg shadow-2xl" src="./img/imagem2.jpg" alt="Imagem 2">
-                    <img class="w-[1024px] h-[683px] rounded-lg shadow-2xl" src="./img/imagem3.jpg" alt="Imagem 3">
+        <main>
+            <div class="titulo">
+                <img style="width: 50%;" src="img/Marca_IFSP_SimpHor_ARA.png" alt="">
+                <h1>Carrossel Super Lindo De Imagens Para o Prof Rogério</h1>
+            </div>
+
+            <div class="main_container">
+                <div class="carousel-container">
+                    <img src="./img/imagem1.jpg" alt="Imagem 1">
+                    <img src="./img/imagem2.jpg" alt="Imagem 2">
+                    <img src="./img/imagem3.jpg" alt="Imagem 3">
                 </div>
-                <section class="flex gap-10 mt-14">
-                    <button class="prev bg-slate-200 rounded-lg p-5 w-40 shadow-xl font-semibold antialiased text-lg outline-none hover:bg-slate-300 hover:border-none active:scale-105 active:bg-slate-400 ease-in-out duration-300 ">Anterior</button>
-                    <button class="next bg-slate-200 rounded-lg p-5 w-40 shadow-xl font-semibold antialiased text-lg outline-none hover:bg-slate-300 hover:border-none active:scale-105 active:bg-slate-400 ease-in-out duration-300 ">Próxima</button>
+                <section class="button_section">
+                    <button class="button-30 prev" role="button">Anterior</button>
+                    <button class="button-30 next" role="button">Próxima</button>
                 </section>
             </div>
         </main>

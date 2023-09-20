@@ -1,7 +1,8 @@
 $(document).ready(function() {
-    var currentIndex = 0;
-    var images = $('.carousel-container img');
-    var totalImages = images.length;
+    let currentIndex = 0;
+    let images = $('.carousel-container img');
+    let totalImages = images.length;
+    let intervalInSeconds = 10; // Tempo em segundos para mudar automaticamente
 
     images.each(function(index, element) {
         console.log("Imagem " + index + ": " + $(element).attr('src'));
@@ -21,8 +22,23 @@ $(document).ready(function() {
         currentIndex = (currentIndex - 1 + totalImages) % totalImages;
         showImage(currentIndex);
     }
-    
-    $('.next').on('click', nextImage);
-    $('.prev').on('click', prevImage);
+
+    $('.next').on('click', function() {
+        nextImage();
+        resetInterval();
+    });
+
+    $('.prev').on('click', function() {
+        prevImage();
+        resetInterval();
+    });
+
+    function resetInterval() {
+        clearInterval(intervalID); // Limpa o timer anterior
+        intervalID = setInterval(nextImage, intervalInSeconds * 1000); // Inicia um novo timer
+    }
+
+    let intervalID = setInterval(nextImage, intervalInSeconds * 1000); // Inicializa o timer
+
     showImage(currentIndex);
 });
