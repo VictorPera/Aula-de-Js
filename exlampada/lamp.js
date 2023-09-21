@@ -4,19 +4,19 @@ function  ligaDesliga(){
     let interruptor = document.getElementById("interruptor_desligado")
     // let interruptor = document.getElementById("btnPrincipal");
 
-    if(lampada.src.match("/exlampada/img/lampadaApagada.jpeg")){
-        lampada.src = "/exlampada/img/lampadaAcessa.jpeg";
+    if(lampada.src.match("./img/lampadaApagada.png")){
+        lampada.src = "./img/lampadaAcessa.png";
         // interruptor.innerText = 'Desligar';
-        interruptor.src = "/exlampada/img/interruptor_desligado.jpeg";
+        interruptor.src = "./img/interruptor_desligado.jpeg";
 
     }else{
-        lampada.src = "/exlampada/img/lampadaApagada.jpeg";
+        lampada.src = "./img/lampadaApagada.png";
         // interruptor.innerText = 'Ligar';
-        interruptor.src = "/exlampada/img/interruptor_ligado.jpeg";
+        interruptor.src = "./img/interruptor_desligado.jpeg";
     }
 }
 
 let interruptor = document.getElementById("interruptor_desligado");
 console.log(interruptor)
-interruptor.addEventListener("click", ligaDesliga);
+interruptor.addEventListener("click", () => ligaDesliga());
 
