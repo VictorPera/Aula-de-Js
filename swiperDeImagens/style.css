@@ -20,14 +20,17 @@ main {
     gap: 3rem;
 }
 
-.titulo {
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     width: 100%;
     text-align: center;
 }
 
 h1 {
     margin-top: 2rem;
-    font-size: 2.5rem;
+    font-size: 2.4rem;
     line-height: 3rem;
     background-image: linear-gradient(to bottom, #fff, #807e7ef1);
     background-clip: text;
@@ -36,7 +39,17 @@ h1 {
     color: #000;
 }
 
-img {
+.img_ifood {
+    align-self: flex-start;
+    width: 5%;
+    border-radius: 10px;
+}
+
+strong {
+    font-size: 75px;
+}
+
+.img_container {
     width: 1024px;
     height: 340px;
     border-radius: .5rem;
@@ -53,7 +66,7 @@ img {
 .button_section {
     display: flex;
     gap: 2.5rem;
-    margin-top: 2.75rem;
+    margin-top: 6rem;
 }
 
 .button-30 {

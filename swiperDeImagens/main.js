@@ -2,7 +2,7 @@ $(document).ready(function() {
     let currentIndex = 0;
     let images = $('.carousel-container img');
     let totalImages = images.length;
-    let intervalInSeconds = 10; // Tempo em segundos para mudar automaticamente
+    let intervalInSeconds = 5; // Tempo em segundos para mudar automaticamente
 
     images.each(function(index, element) {
         console.log("Imagem " + index + ": " + $(element).attr('src'));
