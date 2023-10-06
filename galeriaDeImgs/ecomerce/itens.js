@@ -1,5 +1,3 @@
-
-
 //Função responsável por mostrar ou não os produtos do carrinho
 function renderizarprodutosCarrinho() {
 	const containerProdutosCarrinho = document.getElementById('produtos-carrinho');
@@ -10,31 +8,16 @@ function renderizarprodutosCarrinho() {
 	}
 }
 
+//Função que leva para a página de checkout após apertar o botão de "finalizar compra"
+function irParaCheckout(){
+	if(Object.keys(idsProdutoCarrinhoComQuantidade).length === 0){
+		return;
+	}
+	window.location.href = window.location.origin + '/checkout.html';
+}
+
 //constante que verifiaca se tem produtos no carrinho
 const idsProdutoCarrinhoComQuantidade = lerLocalStorage('carrinho') ?? {};
-
-//Função para fechar o carrinho
-function fecharCarrinho() {
-	document.getElementById('carrinho').classList.remove('right-0');
-	document.getElementById('carrinho').classList.add('right-[-370px]');
-}
-
-//Função para abrir o carrinho
-function abrirCarrinho() {
-	document.getElementById('carrinho').classList.remove('right-[-370px]');
-	document.getElementById('carrinho').classList.add('right-0');
-}
-
-//Função que inicializa o carrinho
-function inicializarCarrinho() {
-	const botaoFecharCarrinho = document.getElementById('fechar-carrinho');
-	const botaoAbrirCarrinho = document.getElementById('abrir-carrinho');
-	const botaoIrParaCheckout = document.getElementById('finalizar-compra');
-
-	botaoFecharCarrinho.addEventListener('click', fecharCarrinho);
-	botaoAbrirCarrinho.addEventListener('click', abrirCarrinho);
-	botaoIrParaCheckout.addEventListener('click', irParaCheckout);
-}
 
 //Função que remove itens do carrinho
 function removerDoCarrinho(idProduto) {
@@ -115,18 +98,6 @@ function desenharProdutoNoCarrinho(idProduto) {
 	document.getElementById(`remover-item-${produto.id}`).addEventListener('click', () => removerDoCarrinho(produto.id));
 }
 
-//Função responsável por adicionar produtos do homepage ao carrinho através de um botão
-function adicionarAoCarrinho(idProduto) {
-	if (idProduto in idsProdutoCarrinhoComQuantidade) {
-		incrementarQuantidadeProduto(idProduto);
-		return;
-	}
-	idsProdutoCarrinhoComQuantidade[idProduto] = 1;
-	salvarLocalStorage('carrinho', idsProdutoCarrinhoComQuantidade);
-	desenharProdutoNoCarrinho(idProduto);
-	atualizarPrecoCarrinho();
-}
-
 //Função que atualiza os preços do carrinho com base na quantidade dos produtos
 function atualizarPrecoCarrinho() {
 	const precoCarrinho = document.getElementById('preco-total');
@@ -137,15 +108,6 @@ function atualizarPrecoCarrinho() {
 	}
 	precoCarrinho.innerText = `Total: R$ ${precoTotalCarrinho}`;
 }
-
-//Função que leva para a página de checkout após apertar o botão de "finalizar compra"
-function irParaCheckout(){
-	if(Object.keys(idsProdutoCarrinhoComQuantidade).length === 0){
-		return;
-	}
-	window.location.href = window.location.origin + '/checkout.html';
-}
-
 //Função responsável por gerar os cartões de produtos no carrinho
 function desenharProdutoCarrinhoSimples(idProduto, idContainerHTML, quantidadeProduto) {
 	const produto = catalogo.find((p) => p.id === idProduto);
@@ -177,38 +139,5 @@ function desenharProdutoCarrinhoSimples(idProduto, idContainerHTML, quantidadePr
 
 const catalogoProdutos = document.getElementById("container-produto");
 
-//Função que exibe todos os produtos no filtro "Todos"
-function exibirTodos(){
-    const produtosEscondidos = Array.from(catalogoProdutos.getElementsByClassName('hidden'));
 
-    for(const produto of produtosEscondidos){
-        produto.classList.remove('hidden');
-    }
-}
 
-//Função que esconde os livros "Adultos"
-function esconderAdultos(){
-    exibirTodos();
-    const produtosAdultos = Array.from(catalogoProdutos.getElementsByClassName('adulto'));
-
-    for(const produto of produtosAdultos){
-        produto.classList.add('hidden');
-    }
-}
-
-//Função que esconde os livros "Adolescentes"
-function esconderAdolescentes(){
-    exibirTodos();
-    const produtosAdolescentes = Array.from(catalogoProdutos.getElementsByClassName('adolescente'));
-
-    for(const produto of produtosAdolescentes){
-        produto.classList.add('hidden');
-    }
-}
-
-//Função que inicializa os filtros
-export function inicializarFiltros(){
-    document.getElementById('exibir-todos').addEventListener('click', exibirTodos);
-    document.getElementById('exibir-adolescentes').addEventListener('click', esconderAdultos);
-    document.getElementById('exibir-adultos').addEventListener('click', esconderAdolescentes);
-}
