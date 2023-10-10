@@ -19,7 +19,7 @@
 
         <!-- Cabeçalho responsável pelo logo -->
         <header class="bg-slate-800 flex justify-between px-8 py-1 sticky top-0 shadow-md shadow-slate-800 text-2xl z-10">
-            <a href="/"><img class="h-16 m-2 cursor-pointer" src="./img/logoBookStore.png" alt="Imagem da Logo BookStore"></a>
+            <a href="index.html"><img class="h-16 m-2 cursor-pointer" src="./img/logoBookStore.png" alt="Imagem da Logo BookStore"></a>
         </header>
         <!-- Fim Cabeçalho -->
 
@@ -31,15 +31,15 @@
                 <p class="mb-5 text-center font-bold">Seus Dados</p>
                 <div class="flex flex-col px-10 py-3">
                     <label for="nome" class="font-bold text-sm mb-2">Nome</label>
-                    <input type="text" id="nome" class="rounded-sm px-2 py-1 border-2 border-slate-200" placeholder="Seu Nome" required>
+                    <input type="text" id="nome" class="rounded-sm px-2 py-1 border-2 border-slate-200" placeholder="Seu Nome" >
                 </div>
                 <div class="flex flex-col px-10 py-3">
                     <label for="email" class="font-bold text-sm mb-2">E-mail</label>
-                    <input type="email" id="email" class="rounded-sm px-2 py-1 border-2 border-slate-200" placeholder="Ex: seuemail@gmail.com" required>
+                    <input type="email" id="email" class="rounded-sm px-2 py-1 border-2 border-slate-200" placeholder="Ex: seuemail@gmail.com" >
                 </div>
                 <div class="flex flex-col px-10 py-3">
                     <label for="telefone" class="font-bold text-sm mb-2">Telefone de Contato</label>
-                    <input type="tel" id="telefone" class="rounded-sm px-2 py-1 border-2 border-slate-200" placeholder="Ex: (xx)xxxxx-xxxx" required>
+                    <input type="tel" id="telefone" class="rounded-sm px-2 py-1 border-2 border-slate-200" placeholder="Ex: (xx)xxxxx-xxxx" >
                 </div>
             </section>
             <!-- Fim da seção cadastral -->
@@ -49,39 +49,39 @@
                 <p class="mb-5 text-center font-bold">Pagamento e Entrega</p>
                 <div class="flex flex-col px-10 py-3">
                     <label for="numero-cartao" class="font-bold text-sm mb-2">Número do Cartão</label>
-                    <input type="number" id="numero-cartao" class="rounded-sm px-2 py-1 border-2 border-slate-200" placeholder="xxxx-xxxx-xxxx-xxxx" required>
+                    <input type="number" id="numero-cartao" class="rounded-sm px-2 py-1 border-2 border-slate-200" placeholder="xxxx-xxxx-xxxx-xxxx" >
                 </div>
 
                 <div class="flex">
                     <div class="flex flex-col px-10 py-3 w-1/2">
                         <label for="cvv" class="font-bold text-sm mb-2">CVV</label>
-                        <input type="number" id="cvv" class="rounded-sm px-2 py-1 border-2 border-slate-200" placeholder="xxx" required>
+                        <input type="number" id="cvv" class="rounded-sm px-2 py-1 border-2 border-slate-200" placeholder="xxx" >
                     </div>
                     <div class="flex flex-col px-10 py-3 w-1/2">
                         <label for="data-validade" class="font-bold text-sm mb-2">Data de Validade</label>
-                        <input type="text" id="data-validade" class="rounded-sm px-2 py-1 border-2 border-slate-200" placeholder="xx/xx" required>
+                        <input type="text" id="data-validade" class="rounded-sm px-2 py-1 border-2 border-slate-200" placeholder="xx/xx" >
                     </div>
                 </div>
 
                 <div class="flex flex-col px-10 py-3">
                     <label for="cep" class="font-bold text-sm mb-2">CEP</label>
                     <input type="number" id="cep" class="rounded-sm px-2 py-1 border-2 border-slate-200"
-                        placeholder="xxxxx-xxx" required>
+                        placeholder="xxxxx-xxx" >
                 </div>
                 <div class="flex flex-col px-10 py-3">
                     <label for="endereco" class="font-bold text-sm mb-2">Endereço</label>
                     <input type="text" id="endereco" class="rounded-sm px-2 py-1 border-2 border-slate-200"
-                        required>
+                        >
                 </div>
 
                 <div class="flex">
                     <div class="flex flex-col px-10 py-3 w-1/2">
                         <label for="numero-residencia" class="font-bold text-sm mb-2">Número</label>
-                        <input type="text" id="numero-residencia" class="rounded-sm px-2 py-1 border-2 border-slate-200" placeholder="Ex: xx ou xx-A" required>
+                        <input type="text" id="numero-residencia" class="rounded-sm px-2 py-1 border-2 border-slate-200" placeholder="Ex: xx ou xx-A" >
                     </div>
                     <div class="flex flex-col px-10 py-3 w-1/2">
                         <label for="complemento" class="font-bold text-sm mb-2">Complemento</label>
-                        <input type="text" id="complemento" class="rounded-sm px-2 py-1 border-2 border-slate-200" required>
+                        <input type="text" id="complemento" class="rounded-sm px-2 py-1 border-2 border-slate-200" >
                     </div>
                 </div>
             </section>
@@ -102,6 +102,6 @@
         </form>
 
         <!-- É 'type="module"' pois indica que o arquivo pode exportar e imoprtar de outros arquivos Js -->
-        <script src="./checkout.js" type="module"></script>
+        <script src="./checkout.js"></script>
     </body>
 </html>

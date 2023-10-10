@@ -1,9 +1,3 @@
-
-
-
-
-
-
 //Função responsável por gerar os cartões de produtos no carrinho
 function desenharProdutoCarrinhoSimples(idProduto, idContainerHTML, quantidadeProduto) {
 	const produto = catalogo.find((p) => p.id === idProduto);
@@ -32,7 +26,3 @@ function desenharProdutoCarrinhoSimples(idProduto, idContainerHTML, quantidadePr
 
 	containerProdutosCarrinho.appendChild(elementoArticle);
 }
-
-
-
-
