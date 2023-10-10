@@ -93,7 +93,7 @@ function desenharProdutoCarrinhoSimples(idProduto, idContainerHTML, quantidadePr
 
 	const elementoArticle = document.createElement('article');
 
-	const articleClasses = ['flex', 'bg-stone-200', 'rounded-lg', 'relative', 'mb-2', 'w-96'];
+	const articleClasses = ['flex', 'bg-stone-200', 'rounded-lg', 'relative', 'mb-2', 'w-full'];
 
 	for (const articleClass of articleClasses) {elementoArticle.classList.add(articleClass);}
 

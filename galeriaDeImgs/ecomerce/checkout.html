@@ -41,16 +41,18 @@
                     <label for="telefone" class="font-bold text-sm mb-2">Telefone de Contato</label>
                     <input type="tel" id="telefone" class="rounded-sm px-2 py-1 border-2 border-slate-200" placeholder="Ex: (xx)xxxxx-xxxx" >
                 </div>
-                <div class="w-3/4 flex flex-col justify-start pr-10 py-3 border-solid rounded-sm border-2 border-slate-200">
-                    <label for="sexo" class="font-bold text-sm mb-2">Sexo</label>
-                    <div class="flex flex-col gap-2">
-                        <div class="flex gap-1">
-                            <input type="radio" id="sexo" class="flex-end w-3">
-                            <p>Masculino</p>
-                        </div>
-                        <div class="flex gap-1">
-                            <input type="radio" id="sexo" class="flex-end w-3">
-                            <p>Feminino</p>
+                <div class="w-full flex flex-col pr-10 py-3">
+                    <div class="w-[497px]">
+                        <label for="sexo" class="font-bold text-sm mb-2">Sexo</label>
+                        <div class=" flex flex-col gap-2 border-solid rounded-sm border-2 border-slate-200">
+                            <div class="flex gap-1">
+                                <input type="radio" id="sexo" class=" w-3">
+                                <p>Masculino</p>
+                            </div>
+                            <div class="flex gap-1">
+                                <input type="radio" id="sexo" class=" w-3">
+                                <p>Feminino</p>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -106,7 +108,7 @@
                 <!-- Seção destinada a conter os produtos adicionadois ao carrinho gerado dinâmicamente pelo Js -->
                 <section id="container-produtos-checkout" class="h-4/5 overflow-y-auto px-2 rounded-lg"></section>
 
-                <section id="celula-checkout" class="flex flex-col justify-around px-2 h-1/5">
+                <section id="celula-checkout" class="flex flex-col justify-between px-2 h-1/5">
                     <p id="preco-total" class="bg-slate-200 text-green-800 rounded-lg pl-1 mt-2">Total: R$ </p>
                     <button class="bg-slate-200 text-slate-900 p-2 mt-2 rounded-lg duration-500 hover:bg-slate-800 hover:text-slate-200 hover:duration-300 hover:ease-out active:bg-slate-700 active:ease-in" type="submit">Finalizar Compra</button>
                 </section>
