@@ -14,6 +14,10 @@
         crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <script src="https://cdn.tailwindcss.com"></script>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10.3.1/swiper.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
 </head>
 
 <body class="bg-slate-200 flex flex-col">
@@ -50,18 +54,46 @@
     </header>
     <!-- Fim cabeçalho -->
 
-    <div class="main_container">
-        <div class="carousel-container">
-            <img class="img_container" src="./img/imagem1.jpg" alt="Imagem 1">
-            <img class="img_container" src="./img/imagem2.jpg" alt="Imagem 2">
-            <img class="img_container" src="./img/imagem3.jpg" alt="Imagem 3">
-            <img class="img_container" src="./img/imagem4.jpg" alt="Imagem 4">
-            <img class="img_container" src="./img/imagem5.jpg" alt="Imagem 5">
+    <div class="swiper mt-5 w-full">
+        <!-- Additional required wrapper -->
+        <div class="swiper-wrapper p-5">
+            <!-- Slides -->
+            <div class="swiper-slide flex justify-center"><img class="w-[1024px]" src="./img/imagem1.jpg" alt="Imagem 1"></div>
+            <div class="swiper-slide flex justify-center"><img class="w-[1024px]" src="./img/imagem2.jpg" alt="Imagem 2"></div>
+            <div class="swiper-slide flex justify-center"><img class="w-[1024px]" src="./img/imagem3.jpg" alt="Imagem 3"></div>
+            <div class="swiper-slide flex justify-center"><img class="w-[1024px]" src="./img/imagem4.jpg" alt="Imagem 4"></div>
+            <div class="swiper-slide flex justify-center"><img class="w-[1024px]" src="./img/imagem5.jpg" alt="Imagem 5"></div>
         </div>
-        <section class="button_section">
-            <button class="button-30 prev" role="button">Anterior</button>
-            <button class="button-30 next" role="button">Próxima</button>
-        </section>
+        <!-- If we need pagination -->
+        <div class="swiper-pagination"></div>
+    
+        <!-- If we need navigation buttons -->
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
+
+        <script>
+            const swiper = new Swiper('.swiper', {
+                // Optional parameters
+                direction: 'horizontal',
+                loop: true,
+
+                // If we need pagination
+                pagination: {
+                    el: '.swiper-pagination',
+                    clickable: true,
+                    dynamicBullets: true,
+                },
+
+                // Navigation arrows
+                navigation: {
+                    nextEl: '.swiper-button-next',
+                    prevEl: '.swiper-button-prev',
+                },
+
+                allowTouchMove: true,
+
+            });
+        </script>
     </div>
 
     <!-- Conteúdo principal da página -->

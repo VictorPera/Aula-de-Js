@@ -279,7 +279,6 @@ function atualizarPrecoCarrinho() {
 	precoCarrinho.innerText = `Total: R$ ${precoTotalCarrinho}`;
 }
 
-
 renderizarCatalogo();
 inicializarCarrinho();
 renderizarProdutosCarrinho();
