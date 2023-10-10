@@ -99,7 +99,7 @@ function renderizarCatalogo(){
             <img 
             src="./img/${produtoCatalogo.imagem}"
             alt="${produtoCatalogo.nome}"
-            class="group-hover:scale-110 duration-300 my-3 w-[290px] self-center " 
+            class="group-hover:scale-110 duration-300 my-3 w-[290px] self-center produto-img" 
             >
             <h2 class="text-sm">${produtoCatalogo.nome}</h2>
             <p class="text-lg">R&#x24; ${produtoCatalogo.preco}</p>
@@ -209,9 +209,7 @@ function desenharProdutoNoCarrinho(idProduto) {
             <i class="fa-solid fa-circle-xmark text-slate-500 absolute right-[10px] top-[40px] hover:text-slate-900 duration-300"></i>
         </button>
 
-        <img src="./img/${produto.imagem}" alt="Carrinho: ${
-		produto.nome
-	}" class="w-24 h-24 rounded-lg p-2">
+        <img src="./img/${produto.imagem}" alt="Carrinho: ${produto.nome}" class="w-24 h-24 rounded-lg p-2 imagem-carrinho">
 
         <div class="py-2 flex flex-col justify-between">
             <p class="text-slate-900 text-sm">${produto.nome}</p>
@@ -280,6 +278,7 @@ function atualizarPrecoCarrinho() {
 	}
 	precoCarrinho.innerText = `Total: R$ ${precoTotalCarrinho}`;
 }
+
 
 renderizarCatalogo();
 inicializarCarrinho();
