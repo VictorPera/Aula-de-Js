@@ -59,23 +59,28 @@
 
         <!-- Divisão que abriga a framework swiper.js -->
         <div class="swiper w-full h-[500px] mt-10">
-            <!-- Additional required wrapper -->
             <div class="swiper-wrapper w-full rounded-lg">
                 <!-- Slides -->
-                <div class="swiper-slide flex justify-center"><img class="w-full mx-2 rounded-lg" src="./img/imagem1.jpg" alt="Imagem 1"></div>
-                <div class="swiper-slide flex justify-center"><img class="w-full mx-2 rounded-lg" src="./img/imagem2.jpg" alt="Imagem 2"></div>
-                <div class="swiper-slide flex justify-center"><img class="w-full mx-2 rounded-lg" src="./img/imagem3.jpg" alt="Imagem 3"></div>
-                <div class="swiper-slide flex justify-center"><img class="w-full mx-2 rounded-lg" src="./img/imagem4.jpg" alt="Imagem 4"></div>
-                <div class="swiper-slide flex justify-center"><img class="w-full mx-2 rounded-lg" src="./img/imagem5.jpg" alt="Imagem 5"></div>
+                <div class="swiper-slide flex"><img class="w-full mx-2 rounded-lg" src="./img/imagem1.jpg" alt="Imagem 1"></div>
+                <div class="swiper-slide flex"><img class="w-full mx-2 rounded-lg" src="./img/imagem2.jpg" alt="Imagem 2"></div>
+                <div class="swiper-slide flex"><img class="w-full mx-2 rounded-lg" src="./img/imagem3.jpg" alt="Imagem 3"></div>
+                <div class="swiper-slide flex"><img class="w-full mx-2 rounded-lg" src="./img/imagem4.jpg" alt="Imagem 4"></div>
+                <div class="swiper-slide flex"><img class="w-full mx-2 rounded-lg" src="./img/imagem5.jpg" alt="Imagem 5"></div>
             </div>
     
             <script>
                 const swiper = new Swiper('.swiper', {
-                    // Optional parameters
+                    // Parâmetros opcionais
                     direction: 'horizontal',
                     loop: true,
                     allowTouchMove: true,
-                });
+
+                    // Autoplay ligado
+                    autoplay: {
+                        delay: 5000,
+                        disableOnInteraction:false,
+                    },
+                    });
             </script>
         </div>
 
