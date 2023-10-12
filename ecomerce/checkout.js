@@ -147,7 +147,7 @@ function finalizarCompra(event){
     salvarLocalStorage('historico', historicoDePedidosAtualizado);
     apagarDolocalStorage('carrinho');
 
-    window.location.href = 'http://127.0.0.1:5500/galeriaDeImgs/ecomerce/pedidos.html';
+    window.location.href = 'http://127.0.0.1:5500/ecomerce/pedidos.html';
 }
 
 desenharProdutosCheckout();
