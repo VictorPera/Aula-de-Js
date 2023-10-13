@@ -99,7 +99,7 @@ function renderizarCatalogo(){
             <img 
             src="./img/${produtoCatalogo.imagem}"
             alt="${produtoCatalogo.nome}"
-            class="group-hover:scale-110 duration-300 my-3 w-[290px] self-center produto-img" 
+            class="drop-shadow-md group-hover:scale-110 duration-300 my-3 w-[290px] self-center" 
             >
             <h2 class="text-sm">${produtoCatalogo.nome}</h2>
             <p class="text-lg">R&#x24; ${produtoCatalogo.preco}</p>
@@ -142,7 +142,7 @@ function irParaCheckout(){
 	if(Object.keys(idsProdutoCarrinhoComQuantidade).length === 0){
 		return;
 	}
-	window.location.href = 'http://127.0.0.1:5500/galeriaDeImgs/ecomerce/checkout.html';
+	window.location.href = 'http://127.0.0.1:5500/ecomerce/checkout.html';
 }
 
 //Função que inicializa os filtros

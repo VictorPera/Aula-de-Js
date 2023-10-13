@@ -1,312 +1,309 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./reset.css">
-    <link rel="stylesheet" href="./style.css">
-    <title>Página Inicial</title>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="./reset.css">
+        <link rel="stylesheet" href="./style.css">
+        <!-- Link para poder usar os icones do FontAwesome -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+            integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+            crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <!-- Link para a CND do Swiper.js -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10.3.1/swiper.min.css">
 
-    <!-- Link para poder usar os icones do FontAwesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
-        integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <title>Página Inicial</title>
 
-    <script src="https://cdn.tailwindcss.com"></script>
+        <!-- Link para a CDN do framework Tailwindcss -->
+        <script src="https://cdn.tailwindcss.com"></script>
+        <!-- Link para a CND do Swiper.js -->
+        <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+    </head>
 
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10.3.1/swiper.min.css">
-    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
-</head>
+    <body class="bg-lime-50 flex flex-col">
 
-<body class="bg-slate-200 flex flex-col">
-
-    <!-- Area do carrinho -->
-    <aside id="carrinho"
-        class="fixed right-[-370px] top-0 bg-slate-800 h-screen w-[370px] text-slate-200 z-50 shadow-lg shadow-slate-800 border-l-2 border-slate-400 duration-500 p-5 flex flex-col justify-between ">
-        <div id="cabecalho-carrinho" class="flex justify-between m-4">
-            <p>Meu Carrinho</p>
-            <button id="fechar-carrinho"><i
-                    class="fa-solid fa-circle-xmark hover:text-slate-400 duration-300"></i></button>
-        </div>
-
-        <!-- Seção destinada a conter os produtos adicionadois ao carrinho gerado dinâmicamente pelo Js -->
-        <section id="produtos-carrinho" class="h-3/5 overflow-auto flex flex-col gap-2"></section>
-
-        <p id="preco-total" class="bg-slate-200 text-green-800 rounded-sm pl-1">Total: R$ </p>
-        <button id="finalizar-compra"
-            class="bg-slate-200 text-slate-900 p-2 rounded-sm duration-500 hover:bg-slate-950 hover:text-slate-200 hover:duration-300 hover:ease-out active:bg-slate-700 active:ease-in">Finalizar
-            Compra</button>
-    </aside>
-    <!-- Final carrinho -->
-
-    <!-- Cabeçalho responsável pelo logo e ícones -->
-    <header class="bg-slate-400 flex justify-between px-8 py-1 sticky top-0 shadow-md shadow-slate-800 text-2xl z-10">
-        <a href="index.html">
-            <img class="m-2 cursor-pointer" src="./img/logoBookStore.png" alt="Imagem da Logo BookStore">
-        </a>
-        <nav class="flex w-[700px] justify-center">
-            <ul id="menu" class="flex gap-x-28 items-center">
-                <li class="bg-slate-100 p-2 text-lg text-center rounded-lg w-28"><a href="#" onclick="carregarPagina('pagina1.html')">Página 1</a></li>
-                <li class="bg-slate-100 p-2 text-lg text-center rounded-lg w-28"><a href="#" onclick="carregarPagina('pagina2.html')">Página 2</a></li>
-                <li class="bg-slate-100 p-2 text-lg text-center rounded-lg w-28"><a href="#" onclick="carregarPagina('pagina3.html')">Página 3</a></li>
-            </ul>
-        </nav>
-        <div class="text-white flex gap-2 items-end mx-2 my-4">
-            <a href="./pedidos.html">
-                <button class="mx-2">
-                    <i class="fa-solid fa-user-astronaut hover:text-slate-400 duration-300"></i>
-                </button>
+        <!-- Cabeçalho responsável pelo logo e ícones -->
+        <header class="bg-neutral-50 flex justify-between px-8 py-1 sticky top-0 shadow-md text-2xl z-10">
+            <a href="index.html">
+                <img class="m-2 cursor-pointer drop-shadow-md" src="./img/logoBookStore.png" alt="Imagem da Logo BookStore">
             </a>
-            <button id="abrir-carrinho" class="mr-2">
-                <i class="fa-solid fa-cart-shopping hover:text-slate-400 duration-300"></i>
-            </button>
-        </div>
-    </header>
-    <!-- Fim cabeçalho -->
-
-    <!-- Conteúdo principal da página -->
-    <main id="conteudo" class="flex flex-col items-center">
-
-        <!-- Divisão que abriga a framework swiper.js -->
-        <div class="swiper w-full h-[400px] mt-10">
-            <div class="swiper-wrapper w-full rounded-lg">
-                <!-- Slides -->
-                <div class="swiper-slide flex"><img class="w-full mx-2 rounded-lg" src="./img/imagem1.jpg" alt="Imagem 1"></div>
-                <div class="swiper-slide flex"><img class="w-full mx-2 rounded-lg" src="./img/imagem2.jpg" alt="Imagem 2"></div>
-                <div class="swiper-slide flex"><img class="w-full mx-2 rounded-lg" src="./img/imagem3.jpg" alt="Imagem 3"></div>
-                <div class="swiper-slide flex"><img class="w-full mx-2 rounded-lg" src="./img/imagem4.jpg" alt="Imagem 4"></div>
-                <div class="swiper-slide flex"><img class="w-full mx-2 rounded-lg" src="./img/imagem5.jpg" alt="Imagem 5"></div>
+            <nav class="flex w-[700px] justify-center mt-3">
+                <ul id="menu" class="flex gap-x-28 items-center">
+                    <li class="bg-slate-800 p-2 text-lg text-center text-white rounded-lg w-32 hover:bg-slate-400 duration-300"><a href="#" onclick="carregarPagina('pagina1.html')">Página 1</a></li>
+                    <li class="bg-slate-800 p-2 text-lg text-center text-white rounded-lg w-32 hover:bg-slate-400 duration-300"><a href="#" onclick="carregarPagina('pagina2.html')">Página 2</a></li>
+                    <li class="bg-slate-800 p-2 text-lg text-center text-white rounded-lg w-32 hover:bg-slate-400 duration-300"><a href="#" onclick="carregarPagina('pagina3.html')">Página 3</a></li>
+                </ul>
+            </nav>
+            <div class="text-white flex gap-2 items-center mx-2 mt-3">
+                <a href="./pedidos.html">
+                    <button class="mx-2">
+                        <i class="fa-solid fa-user text-slate-800 hover:text-slate-400 duration-300"></i>
+                    </button>
+                </a>
+                <button id="abrir-carrinho" class="mr-2">
+                    <i class="fa-solid fa-cart-shopping text-slate-800 hover:text-slate-400 duration-300"></i>
+                </button>
             </div>
-    
-            <script>
-                const swiper = new Swiper('.swiper', {
-                    // Parâmetros opcionais
-                    direction: 'horizontal',
-                    loop: true,
-                    allowTouchMove: true,
+        </header>
+        <!-- Fim cabeçalho -->
 
-                    // Autoplay ligado
-                    autoplay: {
-                        delay: 5000,
-                        disableOnInteraction:false,
-                    },
-                    });
-            </script>
-        </div>
+        <!-- Area do carrinho -->
+        <aside id="carrinho"
+            class="fixed right-[-370px] top-0 bg-slate-800 h-screen w-[370px] text-slate-200 z-50 shadow-lg shadow-slate-800 border-l-2 border-slate-400 duration-500 p-5 flex flex-col justify-between ">
+            <div id="cabecalho-carrinho" class="flex justify-between m-4">
+                <p>Meu Carrinho</p>
+                <button id="fechar-carrinho">
+                    <i class="fa-solid fa-circle-xmark hover:text-slate-400 duration-300"></i>
+                </button>
+            </div>
+        
+            <!-- Seção destinada a conter os produtos adicionadois ao carrinho gerado dinâmicamente pelo Js -->
+            <section id="produtos-carrinho" class="h-3/5 overflow-auto flex flex-col gap-2"></section>
+        
+            <p id="preco-total" class="bg-slate-200 text-green-800 rounded-sm pl-1">Total: R$ </p>
+            <button id="finalizar-compra"
+                class="bg-slate-200 text-slate-900 p-2 rounded-sm duration-500 hover:bg-slate-950 hover:text-slate-200 hover:duration-300 hover:ease-out active:bg-slate-700 active:ease-in">Finalizar
+                Compra</button>
+        </aside>
+        <!-- Final carrinho -->
 
-        <section id="container-pesquisa" class="w-6/12 flex flex-row items-center p-2">
-            <script>
-                const procurar = () => {
-                    const areaDePesquisa = document.getElementById("pesquisa").value.toUpperCase();
-                    const itensArmazenados = document.getElementById("container-produto");
-                    const produto = document.querySelectorAll(".produto");
-                    const nomeDoProduto = itensArmazenados.getElementsByTagName("h2");
-    
-                    for (var i = 0; i < nomeDoProduto.length; i++) {
-                        let match = produto[i].getElementsByTagName("h2")[0];
-    
-                        if (match) {
-                            let valorDoTexto = match.textContent || match.innerHTML;
-    
-                            if (valorDoTexto.toUpperCase().indexOf(areaDePesquisa) > -1) {
-                                produto[i].style.display = "";
-                            } else {
-                                produto[i].style.display = "none";
+        <!-- Conteúdo principal da página -->
+        <main id="conteudo" class="flex flex-col items-center">
+
+            <!-- Divisão que abriga a framework swiper.js -->
+            <div class="swiper w-full h-[400px] mt-10">
+                <div class="swiper-wrapper w-full rounded-lg">
+                    <!-- Slides -->
+                    <div class="swiper-slide flex"><img class="w-full mx-2 rounded-lg" src="./img/imagem1.jpg" alt="Imagem 1"></div>
+                    <div class="swiper-slide flex"><img class="w-full mx-2 rounded-lg" src="./img/imagem2.jpg" alt="Imagem 2"></div>
+                    <div class="swiper-slide flex"><img class="w-full mx-2 rounded-lg" src="./img/imagem3.jpg" alt="Imagem 3"></div>
+                    <div class="swiper-slide flex"><img class="w-full mx-2 rounded-lg" src="./img/imagem4.jpg" alt="Imagem 4"></div>
+                    <div class="swiper-slide flex"><img class="w-full mx-2 rounded-lg" src="./img/imagem5.jpg" alt="Imagem 5"></div>
+                </div>
+        
+                <script>
+                    const swiper = new Swiper('.swiper', {
+                        // Parâmetros opcionais
+                        direction: 'horizontal',
+                        loop: true,
+                        allowTouchMove: true,
+
+                        // Autoplay ligado
+                        autoplay: {
+                            delay: 5000,
+                            disableOnInteraction:false,
+                        },
+                        });
+                </script>
+            </div>
+
+            <section id="container-pesquisa" class="w-6/12 flex flex-row items-center p-2">
+                <script>
+                    const procurar = () => {
+                        const areaDePesquisa = document.getElementById("pesquisa").value.toUpperCase();
+                        const itensArmazenados = document.getElementById("container-produto");
+                        const produto = document.querySelectorAll(".produto");
+                        const nomeDoProduto = itensArmazenados.getElementsByTagName("h2");
+        
+                        for (var i = 0; i < nomeDoProduto.length; i++) {
+                            let match = produto[i].getElementsByTagName("h2")[0];
+        
+                            if (match) {
+                                let valorDoTexto = match.textContent || match.innerHTML;
+        
+                                if (valorDoTexto.toUpperCase().indexOf(areaDePesquisa) > -1) {
+                                    produto[i].style.display = "";
+                                } else {
+                                    produto[i].style.display = "none";
+                                }
                             }
                         }
                     }
-                }
-            </script>
-            <form
-                class="bg-slate-100 mt-6 w-full flex flex-row items-center border-2 border-solid rounded-lg outline-none">
-                <i class="fa fa-search pl-2"></i>
-                <input type="text" id="pesquisa" class="w-full bg-slate-100 p-2 rounded-lg outline-none"
-                    placeholder="Procure por produtos" onkeyup="procurar()">
-            </form>
-        </section>
+                </script>
+                <form
+                    class="bg-slate-100 mt-6 w-full flex flex-row items-center border-2 border-solid rounded-lg outline-none">
+                    <i class="fa fa-search pl-2"></i>
+                    <input type="text" id="pesquisa" class="w-full bg-slate-100 p-2 rounded-lg outline-none"
+                        placeholder="Procure por produtos" onkeyup="procurar()">
+                </form>
+            </section>
 
-        <!-- Criação dos filtros de produto -->
-        <section id="filtros" class="p-10 flex">
-            <div class="px-2">
-                <input id="exibir-todos" type="radio" name="filtro" class="peer hidden" checked>
-                <label for="exibir-todos"
-                    class="peer-checked:bg-slate-950 peer-checked:text-slate-200 peer-checked:font-bold peer-checked:duration-200 p-2 rounded-xl select-none cursor-pointer">Todos</label>
-            </div>
-            <div class="px-2">
-                <input id="exibir-adolescentes" type="radio" name="filtro" class="peer hidden">
-                <label for="exibir-adolescentes"
-                    class="peer-checked:bg-slate-950 peer-checked:text-slate-200 peer-checked:font-bold peer-checked:duration-200 p-2 rounded-xl select-none cursor-pointer">Adolescentes</label>
-            </div>
-            <div class="px-2">
-                <input id="exibir-adultos" type="radio" name="filtro" class="peer hidden">
-                <label for="exibir-adultos"
-                    class="peer-checked:bg-slate-950 peer-checked:text-slate-200 peer-checked:font-bold peer-checked:duration-200 p-2 rounded-xl select-none cursor-pointer">Adultos</label>
-            </div>
-        </section>
-
-        <!-- Seção destinada a conter os containers dos produtos do ecommerce gerado dinâmicamente pelo Js -->
-        <section id="container-produto" class="flex flex-wrap p-10 justify-center gap-10"></section>
-    </main>
-    <!-- Fim filtro -->
-
-    <!-- Rodapé com atalho para voltar ao topo -->
-    <footer>
-        <div class="footer-line"></div>
-        <div class="footer-wrapper">
-            <section class="footer-top">
-                <div class="footer-headline">
-                    <h2>Increva-se para nosso newsletter</h2>
-                    <p>Fique por dentro de nossas notificações</p>
+            <!-- Criação dos filtros de produto -->
+            <section id="filtros" class="p-10 flex">
+                <div class="px-2">
+                    <input id="exibir-todos" type="radio" name="filtro" class="peer hidden" checked>
+                    <label for="exibir-todos"
+                        class="peer-checked:bg-slate-950 peer-checked:text-slate-200 peer-checked:font-bold peer-checked:duration-200 p-2 rounded-xl select-none cursor-pointer">Todos</label>
                 </div>
-                <div class="footer-subscribe">
-                    <input type="email" spellcheck="false" placeholder="Seu Email">
-                    <button>Entrar</button>
+                <div class="px-2">
+                    <input id="exibir-adolescentes" type="radio" name="filtro" class="peer hidden">
+                    <label for="exibir-adolescentes"
+                        class="peer-checked:bg-slate-950 peer-checked:text-slate-200 peer-checked:font-bold peer-checked:duration-200 p-2 rounded-xl select-none cursor-pointer">Adolescentes</label>
+                </div>
+                <div class="px-2">
+                    <input id="exibir-adultos" type="radio" name="filtro" class="peer hidden">
+                    <label for="exibir-adultos"
+                        class="peer-checked:bg-slate-950 peer-checked:text-slate-200 peer-checked:font-bold peer-checked:duration-200 p-2 rounded-xl select-none cursor-pointer">Adultos</label>
                 </div>
             </section>
-            <div class="footer-columns">
-                <section class="footer-logo">
-                    <h2>
-                        <img src="./img/valorant.svg" alt="">
-                    </h2>
-                </section>
-                <section>
-                    <h3>Produto</h3>
-                    <ul>
-                        <li>
-                            <a href="#" title="Box-livros"></a>
-                            <li>
-                                <a href="#" title="Pricing">Pricing</a>
-                            </li>
-                            <li>
-                                <a href="#" title="Documentation">Documentation</a>
-                            </li>
-                            <li>
-                                <a href="#" title="Release Notes">Release Notes</a>
-                            </li>
-                            <li>
-                                <a href="#" title="Status">Status</a>
-                            </li>
-                        </li>
-                    </ul>
-                </section>
-                <section>
-                    <h3>Resources</h3>
-                    <ul>
-                        <li>
-                            <a href="#" title="Support">Support</a>
-                        </li>
-                        <li>
-                            <a href="#" title="Sitemap">Sitemap</a>
-                        </li>
-                        <li>
-                            <a href="#" title="Newsletter">Newsletter</a>
-                        </li>
-                        <li>
-                            <a href="#" title="Help Centre">Help Centre</a>
-                        </li>
-                        <li>
-                            <a href="#" title="Investor">Investor</a>
-                        </li>
-                    </ul>
-                </section>
-                <section>
-                    <h3>Company</h3>
-                    <ul>
-                        <li>
-                            <a href="#" title="About Us">About Us</a>
-                        </li>
-                        <li>
-                            <a href="#" title="Blog">Blog</a>
-                        </li>
-                        <li>
-                            <a href="#" title="Careers">Careers</a>
-                        </li>
-                        <li>
-                            <a href="#" title="Press">Press</a>
-                        </li>
-                        <li>
-                            <a href="#" title="Contact">Contact</a>
-                        </li>
-                    </ul>
-                </section>
-                <section>
-                    <h3>Legal</h3>
-                    <ul>
-                        <li>
-                            <a href="#" title="Terms and services">
-                                Terms
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#" title="Privacy Policy">
-                                Privacy
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#" title="Cookies">
-                                Cookies
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#" title="Licenses">
-                                Licenses
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#" title="Cookies">
-                                Contact
-                            </a>
-                        </li>
-                    </ul>
-                </section>
-            </div>
-            <div class="footer-bottom">
-                <div class="social-links">
-                    <ul>
-                        <li>
-                            <a href="#" title="Instagram">
-                                <img src="./img/instagram.svg" alt="Instagram">
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#" title="Linkedin">
-                                <img src="./img/linkedin.svg" alt='Linkedin'>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#" title="Twitter">
-                                <img src="./img/twitter.svg" alt='Twitter'>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#" title="Youtube">
-                                <img src="./img/youtube.svg" alt='YouTube'>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#" title="GitHub">
-                                <img src="./img/github.svg" alt='GitHub'>
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-                <small>
-                    &copy;Victor Hugo Prado Pera. <span id="year"></span>, All rights reserved
-                    <a class="mx-10 p-4 " href="#">voltar ao topo</a>
-                </small>
-            </div>
-        </div>
-    </footer>
-    <script>
-        document.getElementById("year").innerHTML = new Date().getFullYear();
-    </script>
-    <!-- Fim rodapé -->
 
-    <script src="./fetch.js"></script>
-    <!-- É 'type="module"' pois indica que o arquivo pode exportar e imoprtar de outros arquivos Js -->
-    <script src="./main.js"></script>
-</body>
+            <!-- Seção destinada a conter os containers dos produtos do ecommerce gerado dinâmicamente pelo Js -->
+            <section id="container-produto" class="flex flex-wrap p-10 justify-center gap-10"></section>
+        </main>
+        <!-- Fim filtro -->
+
+        <!-- Rodapé com atalho para voltar ao topo -->
+        <footer class="flex flex-col bg-neutral-50">
+            <div class="flex flex-col items-center">
+                <section class="flex justify-around w-3/4 mt-3">
+                    <div class="flex flex-col gap-1 text-sm">
+                        <h2 class="text-slate-800">Increva-se em nosso <a href="#"><strong>newsletter</strong></a></h2>
+                        <p class="text-slate-800">Fique por dentro de nossas notificações</p>
+                    </div>
+                    <div class="flex gap-5">
+                        <input class="w-64 h-10 p-2 rounded-lg border outline-none focus:border-slate-800" type="email" spellcheck="false" placeholder="Seu Email">
+                        <button class="bg-slate-900 w-28 h-10 text-center text-white rounded-lg hover:bg-slate-800 duration-200 active:bg-slate-600">Entrar</button>
+                    </div>
+                </section>
+                <div class="flex justify-evenly w-3/4 my-12">
+                    <section class="flex items-start w-28 p-1">
+                        <h2 class="w-28">
+                            <i class="fa-solid fa-code fa-lg text-7xl mt-3"></i>
+                        </h2>
+                    </section>
+                    <section class="flex flex-col gap-5">
+                        <h3 class="text-lg"><strong>Produto</strong></h3>
+                        <ul class="flex flex-col gap-2">
+                            <li>
+                                <a class="text-sm" href="#" title="Box-livros"></a>
+                                <li>
+                                    <a class="text-sm" href="#" title="Pricing">Pricing</a>
+                                </li>
+                                <li>
+                                    <a class="text-sm" href="#" title="Documentation">Documentation</a>
+                                </li>
+                                <li>
+                                    <a class="text-sm" href="#" title="Release Notes">Release Notes</a>
+                                </li>
+                                <li>
+                                    <a class="text-sm" href="#" title="Status">Status</a>
+                                </li>
+                            </li>
+                        </ul>
+                    </section>
+                    <section class="flex flex-col gap-5">
+                        <h3 class="text-lg"><strong>Resources</strong></h3>
+                        <ul class="flex flex-col gap-2">
+                            <li>
+                                <a class="text-sm" href="#" title="Support">Support</a>
+                            </li>
+                            <li>
+                                <a class="text-sm" href="#" title="Sitemap">Sitemap</a>
+                            </li>
+                            <li>
+                                <a class="text-sm" href="#" title="Newsletter">Newsletter</a>
+                            </li>
+                            <li>
+                                <a class="text-sm" href="#" title="Help Centre">Help Centre</a>
+                            </li>
+                            <li>
+                                <a class="text-sm" href="#" title="Investor">Investor</a>
+                            </li>
+                        </ul>
+                    </section>
+                    <section class="flex flex-col gap-5">
+                        <h3 class="text-lg"><strong>Company</strong></h3>
+                        <ul class="flex flex-col gap-2">
+                            <li>
+                                <a class="text-sm" href="#" title="About Us">About Us</a>
+                            </li>
+                            <li>
+                                <a class="text-sm" href="#" title="Blog">Blog</a>
+                            </li>
+                            <li>
+                                <a class="text-sm" href="#" title="Careers">Careers</a>
+                            </li>
+                            <li>
+                                <a class="text-sm" href="#" title="Press">Press</a>
+                            </li>
+                            <li>
+                                <a class="text-sm" href="#" title="Contact">Contact</a>
+                            </li>
+                        </ul>
+                    </section>
+                    <section class="flex flex-col gap-5">
+                        <h3 class="text-lg"><strong>Legal</strong></h3>
+                        <ul class="flex flex-col gap-2">
+                            <li>
+                                <a class="text-sm" href="#" title="Terms and services">
+                                    Terms
+                                </a>
+                            </li>
+                            <li>
+                                <a class="text-sm" href="#" title="Privacy Policy">
+                                    Privacy
+                                </a>
+                            </li>
+                            <li>
+                                <a class="text-sm" href="#" title="Cookies">
+                                    Cookies
+                                </a>
+                            </li>
+                            <li>
+                                <a class="text-sm" href="#" title="Licenses">
+                                    Licenses
+                                </a>
+                            </li>
+                            <li>
+                                <a class="text-sm" href="#" title="Cookies">
+                                    Contact
+                                </a>
+                            </li>
+                        </ul>
+                    </section>
+                </div>
+                <div class="flex w-3/4 justify-around mb-5">
+                    <div class=" flex items-center w-32 mr-5">
+                        <ul class="flex">
+                            <li>
+                                <a href="https://www.instagram.com/victorpera_/" title="Instagram">
+                                    <button class="mx-2">
+                                        <i class="text-xl fa-brands fa-instagram text-slate-800 hover:text-slate-400 duration-300"></i>
+                                    </button>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://www.linkedin.com/in/victor-hugo-prado-pera-58b914238/" title="Linkedin">
+                                    <button class="mx-2">
+                                        <i class="text-xl fa-brands fa-linkedin text-slate-800 hover:text-slate-400 duration-300"></i>
+                                    </button>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://github.com/VictorPera" title="GitHub">
+                                    <button class="mx-2">
+                                        <i class="text-xl fa-brands fa-github text-slate-800 hover:text-slate-400 duration-300"></i>
+                                    </button>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <small class="flex justify-between gap-28">
+                        <p class="flex items-center mr-7"><strong>&copy;Victor Hugo Prado Pera. <span id="year"></span>, All rights reserved</strong></p>
+                        <a class="bg-slate-900 ml-7 p-3 rounded-lg text-white text-2xs hover:bg-slate-800 duration-200 active:bg-slate-600" href="#">voltar ao topo</a>
+                    </small>
+                </div>
+            </div>
+        </footer>
+        <script>
+            document.getElementById("year").innerHTML = new Date().getFullYear();
+        </script>
+        <!-- Fim rodapé -->
+
+        <script src="./fetch.js"></script>
+        <script src="./main.js"></script>
+    </body>
 
 </html>
