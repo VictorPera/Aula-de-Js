@@ -26,10 +26,40 @@
 
         <!-- Cabeçalho responsável pelo logo e ícones -->
         <header class="bg-neutral-50 flex justify-between px-8 py-1 sticky top-0 shadow-md text-2xl z-10">
-            <a href="index.html">
-                <img class="m-2 cursor-pointer drop-shadow-md" src="./img/logoBookStore.png" alt="Imagem da Logo BookStore">
+            <a href="index.html" class="flex alignt-items">
+                <img class="m-2 cursor-pointer drop-shadow-lg" src="./img/logoBookStore.png" alt="Imagem da Logo BookStore">
             </a>
-            <nav class="flex w-[700px] justify-center mt-3">
+            <nav class="flex flex-wrap w-[700px] h-[200px] justify-center mt-3">
+                <section id="container-pesquisa" class="w-full flex flex-row items-center p-2">
+                    <script>
+                        const procurar = () => {
+                            const areaDePesquisa = document.getElementById("pesquisa").value.toUpperCase();
+                            const itensArmazenados = document.getElementById("container-produto");
+                            const produto = document.querySelectorAll(".produto");
+                            const nomeDoProduto = itensArmazenados.getElementsByTagName("h2");
+            
+                            for (var i = 0; i < nomeDoProduto.length; i++) {
+                                let match = produto[i].getElementsByTagName("h2")[0];
+            
+                                if (match) {
+                                    let valorDoTexto = match.textContent || match.innerHTML;
+            
+                                    if (valorDoTexto.toUpperCase().indexOf(areaDePesquisa) > -1) {
+                                        produto[i].style.display = "";
+                                    } else {
+                                        produto[i].style.display = "none";
+                                    }
+                                }
+                            }
+                        }
+                    </script>
+                    <form
+                        class="bg-slate-100 mt-2 w-full flex flex-row items-center border-2 border-solid rounded-lg outline-none">
+                        <i class="fa fa-search pl-2"></i>
+                        <input type="text" id="pesquisa" class="w-full bg-slate-100 p-2 rounded-lg outline-none"
+                            placeholder="Procure por produtos" onkeyup="procurar()">
+                    </form>
+                </section>
                 <ul id="menu" class="flex gap-x-28 items-center">
                     <li class="bg-slate-800 p-2 text-lg text-center text-white rounded-lg w-32 hover:bg-slate-400 duration-300"><a href="#" onclick="carregarPagina('pagina1.html')">Página 1</a></li>
                     <li class="bg-slate-800 p-2 text-lg text-center text-white rounded-lg w-32 hover:bg-slate-400 duration-300"><a href="#" onclick="carregarPagina('pagina2.html')">Página 2</a></li>
@@ -39,14 +69,15 @@
             <div class="text-white flex gap-2 items-center mx-2 mt-3">
                 <a href="./pedidos.html">
                     <button class="mx-2">
-                        <i class="fa-solid fa-user text-slate-800 hover:text-slate-400 duration-300"></i>
+                        <i class="fa-solid fa-user text-slate-800 text-3xl hover:text-slate-400 duration-300"></i>
                     </button>
                 </a>
                 <button id="abrir-carrinho" class="mr-2">
-                    <i class="fa-solid fa-cart-shopping text-slate-800 hover:text-slate-400 duration-300"></i>
+                    <i class="fa-solid fa-cart-shopping text-slate-800 text-3xl hover:text-slate-400 duration-300"></i>
                 </button>
             </div>
         </header>
+        
         <!-- Fim cabeçalho -->
 
         <!-- Area do carrinho -->
@@ -73,14 +104,14 @@
         <main id="conteudo" class="flex flex-col items-center">
 
             <!-- Divisão que abriga a framework swiper.js -->
-            <div class="swiper w-full h-[400px] mt-10">
-                <div class="swiper-wrapper w-full rounded-lg">
+            <div class="swiper w-full h-[530px] mt-10">
+                <div class="swiper-wrapper w-full">
                     <!-- Slides -->
-                    <div class="swiper-slide flex"><img class="w-full mx-2 rounded-lg" src="./img/imagem1.jpg" alt="Imagem 1"></div>
-                    <div class="swiper-slide flex"><img class="w-full mx-2 rounded-lg" src="./img/imagem2.jpg" alt="Imagem 2"></div>
-                    <div class="swiper-slide flex"><img class="w-full mx-2 rounded-lg" src="./img/imagem3.jpg" alt="Imagem 3"></div>
-                    <div class="swiper-slide flex"><img class="w-full mx-2 rounded-lg" src="./img/imagem4.jpg" alt="Imagem 4"></div>
-                    <div class="swiper-slide flex"><img class="w-full mx-2 rounded-lg" src="./img/imagem5.jpg" alt="Imagem 5"></div>
+                    <div class="swiper-slide flex justify-center"><img class="lg:h-[450px] rounded-lg w-11/12" src="./img/imagem1.jpg" alt="Imagem 1"></div>
+                    <div class="swiper-slide flex justify-center"><img class="lg:h-[450px] rounded-lg w-11/12" src="./img/imagem2.jpg" alt="Imagem 2"></div>
+                    <div class="swiper-slide flex justify-center"><img class="lg:h-[450px] rounded-lg w-11/12" src="./img/imagem3.jpg" alt="Imagem 3"></div>
+                    <div class="swiper-slide flex justify-center"><img class="lg:h-[450px] rounded-lg w-11/12" src="./img/imagem4.jpg" alt="Imagem 4"></div>
+                    <div class="swiper-slide flex justify-center"><img class="lg:h-[450px] rounded-lg w-11/12" src="./img/imagem5.jpg" alt="Imagem 5"></div>
                 </div>
         
                 <script>
@@ -99,60 +130,31 @@
                 </script>
             </div>
 
-            <section id="container-pesquisa" class="w-6/12 flex flex-row items-center p-2">
-                <script>
-                    const procurar = () => {
-                        const areaDePesquisa = document.getElementById("pesquisa").value.toUpperCase();
-                        const itensArmazenados = document.getElementById("container-produto");
-                        const produto = document.querySelectorAll(".produto");
-                        const nomeDoProduto = itensArmazenados.getElementsByTagName("h2");
-        
-                        for (var i = 0; i < nomeDoProduto.length; i++) {
-                            let match = produto[i].getElementsByTagName("h2")[0];
-        
-                            if (match) {
-                                let valorDoTexto = match.textContent || match.innerHTML;
-        
-                                if (valorDoTexto.toUpperCase().indexOf(areaDePesquisa) > -1) {
-                                    produto[i].style.display = "";
-                                } else {
-                                    produto[i].style.display = "none";
-                                }
-                            }
-                        }
-                    }
-                </script>
-                <form
-                    class="bg-slate-100 mt-6 w-full flex flex-row items-center border-2 border-solid rounded-lg outline-none">
-                    <i class="fa fa-search pl-2"></i>
-                    <input type="text" id="pesquisa" class="w-full bg-slate-100 p-2 rounded-lg outline-none"
-                        placeholder="Procure por produtos" onkeyup="procurar()">
-                </form>
-            </section>
-
             <!-- Criação dos filtros de produto -->
-            <section id="filtros" class="p-10 flex">
+            <section id="filtros" class="p-10 flex mt-10">
                 <div class="px-2">
                     <input id="exibir-todos" type="radio" name="filtro" class="peer hidden" checked>
                     <label for="exibir-todos"
-                        class="peer-checked:bg-slate-950 peer-checked:text-slate-200 peer-checked:font-bold peer-checked:duration-200 p-2 rounded-xl select-none cursor-pointer">Todos</label>
+                        class="peer-checked:bg-slate-950 peer-checked:text-slate-200 peer-checked:font-bold peer-checked:duration-200 shadow-xl p-2 rounded-xl select-none cursor-pointer">Todos</label>
                 </div>
                 <div class="px-2">
                     <input id="exibir-adolescentes" type="radio" name="filtro" class="peer hidden">
                     <label for="exibir-adolescentes"
-                        class="peer-checked:bg-slate-950 peer-checked:text-slate-200 peer-checked:font-bold peer-checked:duration-200 p-2 rounded-xl select-none cursor-pointer">Adolescentes</label>
+                        class="peer-checked:bg-slate-950 peer-checked:text-slate-200 peer-checked:font-bold peer-checked:duration-200 shadow-lg p-2 rounded-xl select-none cursor-pointer">Adolescentes</label>
                 </div>
                 <div class="px-2">
                     <input id="exibir-adultos" type="radio" name="filtro" class="peer hidden">
                     <label for="exibir-adultos"
-                        class="peer-checked:bg-slate-950 peer-checked:text-slate-200 peer-checked:font-bold peer-checked:duration-200 p-2 rounded-xl select-none cursor-pointer">Adultos</label>
+                        class="peer-checked:bg-slate-950 peer-checked:text-slate-200 peer-checked:font-bold peer-checked:duration-200 shadow-lg p-2 rounded-xl select-none cursor-pointer">Adultos</label>
                 </div>
             </section>
 
             <!-- Seção destinada a conter os containers dos produtos do ecommerce gerado dinâmicamente pelo Js -->
             <section id="container-produto" class="flex flex-wrap p-10 justify-center gap-10"></section>
+            <!-- Fim filtro -->
         </main>
-        <!-- Fim filtro -->
+        <!-- Fim da Main -->
+
 
         <!-- Rodapé com atalho para voltar ao topo -->
         <footer class="flex flex-col bg-neutral-50">

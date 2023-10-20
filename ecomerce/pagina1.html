@@ -1,13 +1,38 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <title>Página 1</title> <!-- Altere o título para cada página -->
 </head>
 <body>
-    <h2>Página 1</h2> <!-- Altere o título da página -->
-    <p>Conteúdo da Página 1</p> <!-- Adicione o conteúdo da página aqui -->
+    <!-- Conteúdo principal da página -->
+    <main id="conteudo" class="flex flex-col items-center">
+        <!-- Criação dos filtros de produto -->
+        <section id="filtros" class="p-10 flex mt-10">
+            <div class="px-2">
+                <input id="exibir-todos" type="radio" name="filtro" class="peer hidden" checked>
+                <label for="exibir-todos"
+                    class="peer-checked:bg-slate-950 peer-checked:text-slate-200 peer-checked:font-bold peer-checked:duration-200 shadow-xl p-2 rounded-xl select-none cursor-pointer">Todos</label>
+            </div>
+            <div class="px-2">
+                <input id="exibir-adolescentes" type="radio" name="filtro" class="peer hidden">
+                <label for="exibir-adolescentes"
+                    class="peer-checked:bg-slate-950 peer-checked:text-slate-200 peer-checked:font-bold peer-checked:duration-200 shadow-lg p-2 rounded-xl select-none cursor-pointer">Adolescentes</label>
+            </div>
+            <div class="px-2">
+                <input id="exibir-adultos" type="radio" name="filtro" class="peer hidden">
+                <label for="exibir-adultos"
+                    class="peer-checked:bg-slate-950 peer-checked:text-slate-200 peer-checked:font-bold peer-checked:duration-200 shadow-lg p-2 rounded-xl select-none cursor-pointer">Adultos</label>
+            </div>
+        </section>
+
+        <!-- Seção destinada a conter os containers dos produtos do ecommerce gerado dinâmicamente pelo Js -->
+        <section id="container-produto" class="flex flex-wrap p-10 justify-center gap-10"></section>
+        <!-- Fim filtro -->
+    </main>
+    <!-- Fim da Main -->
+
+    <script src="./main.js"></script>
 </body>
 </html>
