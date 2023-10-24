@@ -1,22 +1,13 @@
-const sSection = {
-    id1 = 1,
-    id2 = 2,
-    id3 = 3
-};
+document.getElementById("pagina1").addEventListener("click", () => {
+    var secao1 = document.getElementById("secao1");
+    secao1.scrollIntoView({ behavior: 'smooth' });
+});
+document.getElementById("pagina2").addEventListener("click", () => {
+    var secao2 = document.getElementById("secao2");
+    secao2.scrollIntoView({ behavior: 'smooth' });
+});
+document.getElementById("pagina3").addEventListener("click", () => {
+    var secao3 = document.getElementById("secao3");
+    secao3.scrollIntoView({ behavior: 'smooth' });
+});
 
-
-fetch(section)
-    .then((response)) => {
-        if(!response.ok){
-            throw new Error(`Erro ao carregar página, Status: ${response.status}`);
-        }
-
-        return response.blob();
-    })
-
-    .then((response) => {        
-        if(response = document.getElementById(`${sSection.id1}`)){
-
-        }
-
-    });

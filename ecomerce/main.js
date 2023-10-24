@@ -1,5 +1,5 @@
-// Array de objetos contendo o cadastro de cada produto do ecommerce
-const catalogo = [
+// Array de objetos contendo o cadastro de cada box de livro do ecommerce
+const catalogoBox = [
 	{
 		id: '1',
 		nome: 'Box Senhor dos Anéis + O Hobbit',
@@ -58,7 +58,66 @@ const catalogo = [
 	},
 ];
 
-const catalogoProdutos = document.getElementById("container-produto");
+const catalogoDiversos = [
+	{
+		id: '1',
+		nome: 'Box The Witcher',
+		preco: 350,
+		imagem: 'produto-8.png',
+		adolescente: false,
+	},
+	{
+		id: '2',
+		nome: 'Box The Witcher',
+		preco: 350,
+		imagem: 'produto-8.png',
+		adolescente: false,
+	},
+	{
+		id: '3',
+		nome: 'Box The Witcher',
+		preco: 350,
+		imagem: 'produto-8.png',
+		adolescente: false,
+	},
+	{
+		id: '4',
+		nome: 'Box The Witcher',
+		preco: 350,
+		imagem: 'produto-8.png',
+		adolescente: false,
+	},
+	{
+		id: '5',
+		nome: 'Box The Witcher',
+		preco: 350,
+		imagem: 'produto-8.png',
+		adolescente: false,
+	},
+	{
+		id: '6',
+		nome: 'Box The Witcher',
+		preco: 350,
+		imagem: 'produto-8.png',
+		adolescente: false,
+	},
+	{
+		id: '7',
+		nome: 'Box The Witcher',
+		preco: 350,
+		imagem: 'produto-8.png',
+		adolescente: false,
+	},
+	{
+		id: '8',
+		nome: 'Box The Witcher',
+		preco: 350,
+		imagem: 'produto-8.png',
+		adolescente: false,
+	},
+]
+
+const catalogoProdutos = document.getElementById("container-produto-livro");
 
 //constante que verifiaca se tem produtos no carrinho
 const idsProdutoCarrinhoComQuantidade = lerLocalStorage('carrinho') ?? {};
@@ -90,9 +149,9 @@ function adicionarAoCarrinho(idProduto) {
 	atualizarPrecoCarrinho();
 }
 
-//Função que constroi o card de produtos e adiciona o evento de click ao botao de adicionar ao carrinho
-function renderizarCatalogo(){
-    for(const produtoCatalogo of catalogo){
+//Função que constroi o card de produtos livros e adiciona o evento de click ao botao de adicionar ao carrinho
+function renderizarCatalogoLivros(){
+    for(const produtoCatalogo of catalogoBox){
 
         const cartaoProduto = `
         <div id="card-produto-${produtoCatalogo.id}" class="flex flex-col w-80 m-2 p-2 justify-between shadow-xl shadow-slate-400 rounded-lg produto group ${produtoCatalogo.adolescente ? 'adolescente' : 'adulto'}">
@@ -105,10 +164,33 @@ function renderizarCatalogo(){
             <p class="text-lg">R&#x24; ${produtoCatalogo.preco}</p>
             <button id="adicionar-${produtoCatalogo.id}" class="bg-slate-950 text-slate-200 hover:bg-slate-800 duration-200 rounded-lg active:bg-slate-600"><i class="fa-solid fa-cart-plus"></i></button>
         </div>`;
-        document.getElementById("container-produto").innerHTML += cartaoProduto;
+        document.getElementById("container-produto-livro").innerHTML += cartaoProduto;
     };
 
-    for(const produtoCatalogo of catalogo){
+    for(const produtoCatalogo of catalogoBox){
+        document.getElementById(`adicionar-${produtoCatalogo.id}`).addEventListener('click', () => adicionarAoCarrinho(produtoCatalogo.id));
+    }
+}
+
+//Função que constroi o card de produtos diversos e adiciona o evento de click ao botao de adicionar ao carrinho
+function renderizarCatalogoDiversos(){
+    for(const produtoCatalogo of catalogoDiversos){
+
+        const cartaoProduto = `
+        <div id="card-produto-${produtoCatalogo.id}" class="flex flex-col w-80 m-2 p-2 justify-between shadow-xl shadow-slate-400 rounded-lg produto group ${produtoCatalogo.adolescente ? 'adolescente' : 'adulto'}">
+            <img 
+            src="./img/${produtoCatalogo.imagem}"
+            alt="${produtoCatalogo.nome}"
+            class="drop-shadow-md group-hover:scale-110 duration-300 my-3 w-[290px] self-center" 
+            >
+            <h2 class="text-sm">${produtoCatalogo.nome}</h2>
+            <p class="text-lg">R&#x24; ${produtoCatalogo.preco}</p>
+            <button id="adicionar-${produtoCatalogo.id}" class="bg-slate-950 text-slate-200 hover:bg-slate-800 duration-200 rounded-lg active:bg-slate-600"><i class="fa-solid fa-cart-plus"></i></button>
+        </div>`;
+        document.getElementById("container-produto-diversos").innerHTML += cartaoProduto;
+    };
+
+    for(const produtoCatalogo of catalogoDiversos){
         document.getElementById(`adicionar-${produtoCatalogo.id}`).addEventListener('click', () => adicionarAoCarrinho(produtoCatalogo.id));
     }
 }
@@ -279,7 +361,8 @@ function atualizarPrecoCarrinho() {
 	precoCarrinho.innerText = `Total: R$ ${precoTotalCarrinho}`;
 }
 
-renderizarCatalogo();
+renderizarCatalogoLivros();
+renderizarCatalogoDiversos();
 inicializarCarrinho();
 renderizarProdutosCarrinho();
 atualizarPrecoCarrinho()

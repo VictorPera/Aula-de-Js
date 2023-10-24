@@ -76,9 +76,9 @@
 
             <nav class="flex w-full h-[100px] bg-neutral-50 shadow-md justify-center items-start pt-3">
                 <ul id="menu" class="flex gap-x-28 items-center">
-                    <li class="bg-slate-800 p-2 text-lg text-center text-white rounded-lg w-32 hover:bg-slate-400 duration-300"><a href="#">Página 1</a></li>
-                    <li class="bg-slate-800 p-2 text-lg text-center text-white rounded-lg w-32 hover:bg-slate-400 duration-300"><a href="#">Página 2</a></li>
-                    <li class="bg-slate-800 p-2 text-lg text-center text-white rounded-lg w-32 hover:bg-slate-400 duration-300"><a href="#">Página 3</a></li>
+                    <li class="bg-slate-800 p-2 text-lg text-center cursor-pointer text-white rounded-lg w-32 hover:bg-slate-400 duration-300"><a id="pagina1">Página 1</a></li>
+                    <li class="bg-slate-800 p-2 text-lg text-center cursor-pointer text-white rounded-lg w-32 hover:bg-slate-400 duration-300"><a id="pagina2">Página 2</a></li>
+                    <li class="bg-slate-800 p-2 text-lg text-center cursor-pointer text-white rounded-lg w-32 hover:bg-slate-400 duration-300"><a id="pagina3">Página 3</a></li>
                 </ul>
             </nav>
         </div>
@@ -106,33 +106,23 @@
         <!-- Conteúdo principal da página -->
         <main id="conteudo" class="flex flex-col items-center">
 
-            <section class="sections w-full flex flex-col items-center bg-lime-50" id="1">
-                <div class="swiper w-full h-[530px] mt-16">
-                    <!-- Divisão que abriga a framework swiper.js -->
-                        <div class="swiper-wrapper w-full">
-                            <!-- Slides -->
-                            <div class="swiper-slide flex justify-center"><img class="lg:h-[450px] rounded-lg w-11/12" src="./img/imagem1.jpg" alt="Imagem 1"></div>
-                            <div class="swiper-slide flex justify-center"><img class="lg:h-[450px] rounded-lg w-11/12" src="./img/imagem2.jpg" alt="Imagem 2"></div>
-                            <div class="swiper-slide flex justify-center"><img class="lg:h-[450px] rounded-lg w-11/12" src="./img/imagem3.jpg" alt="Imagem 3"></div>
-                            <div class="swiper-slide flex justify-center"><img class="lg:h-[450px] rounded-lg w-11/12" src="./img/imagem4.jpg" alt="Imagem 4"></div>
-                            <div class="swiper-slide flex justify-center"><img class="lg:h-[450px] rounded-lg w-11/12" src="./img/imagem5.jpg" alt="Imagem 5"></div>
-                        </div>
-                
-                        <script>
-                            const swiper = new Swiper('.swiper', {
-                                // Parâmetros opcionais
-                                direction: 'horizontal',
-                                loop: true,
-                                allowTouchMove: true,
-
-                                // Autoplay ligado
-                                autoplay: {
-                                    delay: 5000,
-                                    disableOnInteraction:false,
-                                },
-                                });
-                        </script>
-                    <!-- Fechamento do Swiper -->
+            <section class="w-full flex flex-col items-center bg-lime-50" id="main-section">
+                <!-- Divisão que abriga a framework swiper.js Swiper Top -->
+                <div class="swiper w-11/12 m-16 rounded-lg">
+                    <div class="swiper-wrapper w-full rounded-lg">
+                        <!-- Slides -->
+                        <div class="swiper-slide flex justify-center"><img class="lg:h-[450px] rounded-lg w-full"
+                                src="./img/imagem1.jpg" alt="Imagem 1"></div>
+                        <div class="swiper-slide flex justify-center"><img class="lg:h-[450px] rounded-lg w-full"
+                                src="./img/imagem2.jpg" alt="Imagem 2"></div>
+                        <div class="swiper-slide flex justify-center"><img class="lg:h-[450px] rounded-lg w-full"
+                                src="./img/imagem3.jpg" alt="Imagem 3"></div>
+                        <div class="swiper-slide flex justify-center"><img class="lg:h-[450px] rounded-lg w-full"
+                                src="./img/imagem4.jpg" alt="Imagem 4"></div>
+                        <div class="swiper-slide flex justify-center"><img class="lg:h-[450px] rounded-lg w-full"
+                                src="./img/imagem5.jpg" alt="Imagem 5"></div>
+                    </div>
+                    <div class="swiper-scrollbar"></div>
                 </div>
 
                 <!-- Criação dos filtros de produto -->
@@ -153,14 +143,62 @@
                             class="peer-checked:bg-slate-950 peer-checked:text-slate-200 peer-checked:font-bold peer-checked:duration-200 shadow-lg p-2 rounded-xl select-none cursor-pointer">Adultos</label>
                     </div>
                 </section>
-
-                <!-- Seção destinada a conter os containers dos produtos do ecommerce gerado dinâmicamente pelo Js -->
-                <section id="container-produto" class="flex flex-wrap p-10 justify-center gap-10"></section>
                 <!-- Fim filtro -->
+
+                <section id="secao1" class="w-full flex bg-slate-500">
+                    <!-- Seção destinada a conter os containers dos produtos do ecommerce gerado dinâmicamente pelo Js -->
+                    <div id="container-produto-livro" class="flex flex-wrap p-10 justify-center gap-10"></div>
+                </section>
+
+                <section id="secao2" class="w-full flex bg-slate-100">
+                    <!-- Seção destinada a conter os containers dos produtos do ecommerce gerado dinâmicamente pelo Js -->
+                    <div id="container-produto-diversos" class="flex flex-wrap p-10 justify-center gap-10"></div>
+                </section>
+
+                <section id="secao3" class="w-full flex bg-slate-300">
+                    <!-- Divisão que abriga a framework swiper.js Swiper Bootom-->
+                    <div class="swiper w-full m-16">
+                        <div class="swiper-wrapper w-full">
+                            <!-- Slides -->
+                            <div class="swiper-slide flex justify-center"><img class="lg:h-[450px] rounded-lg w-full"
+                                    src="./img/imagem1.jpg" alt="Imagem 1"></div>
+                            <div class="swiper-slide flex justify-center"><img class="lg:h-[450px] rounded-lg w-full"
+                                    src="./img/imagem2.jpg" alt="Imagem 2"></div>
+                            <div class="swiper-slide flex justify-center"><img class="lg:h-[450px] rounded-lg w-full"
+                                    src="./img/imagem3.jpg" alt="Imagem 3"></div>
+                            <div class="swiper-slide flex justify-center"><img class="lg:h-[450px] rounded-lg w-full"
+                                    src="./img/imagem4.jpg" alt="Imagem 4"></div>
+                            <div class="swiper-slide flex justify-center"><img class="lg:h-[450px] rounded-lg w-full"
+                                    src="./img/imagem5.jpg" alt="Imagem 5"></div>
+                        </div>
+                        <div class="swiper-scrollbar"></div>
+                    </div>
+                    <!-- Fechamento do Swiper Bootom-->
+                </section>
+                <!-- Script dos Swipers -->
+                <script>
+                    const swiper = new Swiper('.swiper', {
+                        // Parâmetros opcionais
+                        direction: 'horizontal',
+                        loop: true,
+                        allowTouchMove: true,
+
+                        scrollbar: {
+                            el: ".swiper-scrollbar",
+                            hide: true,
+                            dragSize: 250,
+                        },
+
+                        // Autoplay ligado
+                        autoplay: {
+                            delay: 5000,
+                            disableOnInteraction: false,
+                        },
+                    });
+                </script>
             </section>
         </main>
         <!-- Fim da Main -->
-
 
         <!-- Rodapé com atalho para voltar ao topo -->
         <footer class="flex flex-col bg-neutral-50">
