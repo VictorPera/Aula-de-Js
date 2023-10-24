@@ -26,11 +26,13 @@
 
         <div class="z-10 sticky top-0">
             <!-- Cabeçalho responsável pelo logo e ícones -->
-            <header class="bg-neutral-50 flex justify-between px-8 py-1 text-2xl ">
-                <a href="index.html" class="flex alignt-items">
-                    <img class="m-2 cursor-pointer drop-shadow-lg" src="./img/logoBookStore.png" alt="Imagem da Logo BookStore">
+            <header class="bg-neutral-50 flex justify-between py-1 text-2xl shadow-md">
+                <a href="./index.html" class="">
+                    <img class="w-[fa-3]" src="./img/logoBookStore.png" alt="Imagem da Logo BookStore">
                 </a>
-                    <section id="container-pesquisa" class="w-3/4 flex flex-row items-center p-2">
+
+                <div class="flex flex-col w-4/5">
+                    <section id="container-pesquisa" class=" flex items-center justify-center mt-10">
                         <script>
                             const procurar = () => {
                                 const areaDePesquisa = document.getElementById("pesquisa").value.toUpperCase();
@@ -54,12 +56,21 @@
                             }
                         </script>
                         <form
-                            class="bg-slate-100 mt-2 w-full flex flex-row items-center border-2 border-solid rounded-lg outline-none">
+                            class="bg-slate-100 mt-2 w-full flex items-center border-2 border-solid rounded-lg outline-none md:w-3/4">
                             <i class="fa fa-search pl-2"></i>
                             <input type="text" id="pesquisa" class="w-full bg-slate-100 p-2 rounded-lg outline-none"
                                 placeholder="Procure por produtos" onkeyup="procurar()">
                         </form>
                     </section>
+
+                    <nav class="flex w-full h-[100px] bg-neutral-50 justify-center pt-3">
+                        <ul id="menu" class="flex gap-x-28 items-center">
+                            <li class="bg-slate-800 p-2 text-lg text-center cursor-pointer text-white rounded-lg w-32 hover:bg-slate-400 duration-300"><a id="pagina1">Página 1</a></li>
+                            <li class="bg-slate-800 p-2 text-lg text-center cursor-pointer text-white rounded-lg w-32 hover:bg-slate-400 duration-300"><a id="pagina2">Página 2</a></li>
+                            <li class="bg-slate-800 p-2 text-lg text-center cursor-pointer text-white rounded-lg w-32 hover:bg-slate-400 duration-300"><a id="pagina3">Página 3</a></li>
+                        </ul>
+                    </nav>
+                </div>
                 
                 <div class="text-white flex gap-2 items-center mx-2 mt-3">
                     <a href="./pedidos.html">
@@ -73,14 +84,6 @@
                 </div>
             </header>
             <!-- Fim cabeçalho -->
-
-            <nav class="flex w-full h-[100px] bg-neutral-50 shadow-md justify-center items-start pt-3">
-                <ul id="menu" class="flex gap-x-28 items-center">
-                    <li class="bg-slate-800 p-2 text-lg text-center cursor-pointer text-white rounded-lg w-32 hover:bg-slate-400 duration-300"><a id="pagina1">Página 1</a></li>
-                    <li class="bg-slate-800 p-2 text-lg text-center cursor-pointer text-white rounded-lg w-32 hover:bg-slate-400 duration-300"><a id="pagina2">Página 2</a></li>
-                    <li class="bg-slate-800 p-2 text-lg text-center cursor-pointer text-white rounded-lg w-32 hover:bg-slate-400 duration-300"><a id="pagina3">Página 3</a></li>
-                </ul>
-            </nav>
         </div>
 
         <!-- Área do carrinho -->
@@ -112,15 +115,11 @@
                     <div class="swiper-wrapper w-full rounded-lg">
                         <!-- Slides -->
                         <div class="swiper-slide flex justify-center"><img class="lg:h-[450px] rounded-lg w-full"
-                                src="./img/imagem1.jpg" alt="Imagem 1"></div>
+                                src="./img/banner1.jpg" alt="Imagem 1"></div>
                         <div class="swiper-slide flex justify-center"><img class="lg:h-[450px] rounded-lg w-full"
-                                src="./img/imagem2.jpg" alt="Imagem 2"></div>
+                                src="./img/banner2.jpg" alt="Imagem 2"></div>
                         <div class="swiper-slide flex justify-center"><img class="lg:h-[450px] rounded-lg w-full"
-                                src="./img/imagem3.jpg" alt="Imagem 3"></div>
-                        <div class="swiper-slide flex justify-center"><img class="lg:h-[450px] rounded-lg w-full"
-                                src="./img/imagem4.jpg" alt="Imagem 4"></div>
-                        <div class="swiper-slide flex justify-center"><img class="lg:h-[450px] rounded-lg w-full"
-                                src="./img/imagem5.jpg" alt="Imagem 5"></div>
+                                src="./img/banner3.jpg" alt="Imagem 3"></div>
                     </div>
                     <div class="swiper-scrollbar"></div>
                 </div>
@@ -348,8 +347,8 @@
         </script>
         <!-- Fim rodapé -->
 
-        <script src="./fetch.js"></script>
-        <script src="./main.js"></script>
+        <!-- <script src="./fetch.js"></script>
+        <script src="./main.js"></script> -->
     </body>
 
 </html>
