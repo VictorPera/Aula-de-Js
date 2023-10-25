@@ -1,16 +1,16 @@
-// Array de objetos contendo o cadastro de cada box de livro do ecommerce
-const catalogoBox = [
+// Array de objetos contendo o cadastro de cada produto do ecommerce
+const catalogo = [
 	{
 		id: '1',
 		nome: 'Box Senhor dos Anéis + O Hobbit',
-		preco: 165,
+		preco: 165.99,
 		imagem: 'produto-1.png',
 		adolescente: false,
 	},
 	{
 		id: '2',
 		nome: 'Box Harry Potter completa',
-		preco: 365,
+		preco: 365.89,
 		imagem: 'produto-2.png',
 		adolescente: false,
 	},
@@ -31,14 +31,14 @@ const catalogoBox = [
 	{
 		id: '5',
 		nome: 'Box As Crônicas de Gelo e Fogo',
-		preco: 550,
+		preco: 550.55,
 		imagem: 'produto-5.png',
 		adolescente: false,
 	},
 	{
 		id: '6',
 		nome: 'Box Diário De Um Banana - 10 Volumes',
-		preco: 288.5,
+		preco: 288.55,
 		imagem: 'produto-6.png',
 		adolescente: true,
 	},
@@ -52,88 +52,29 @@ const catalogoBox = [
 	{
 		id: '8',
 		nome: 'Box The Witcher',
-		preco: 350,
+		preco: 350.99,
 		imagem: 'produto-8.png',
 		adolescente: false,
 	},
 ];
 
-const catalogoDiversos = [
-	{
-		id: '1',
-		nome: 'Box The Witcher',
-		preco: 350,
-		imagem: 'produto-8.png',
-		adolescente: false,
-	},
-	{
-		id: '2',
-		nome: 'Box The Witcher',
-		preco: 350,
-		imagem: 'produto-8.png',
-		adolescente: false,
-	},
-	{
-		id: '3',
-		nome: 'Box The Witcher',
-		preco: 350,
-		imagem: 'produto-8.png',
-		adolescente: false,
-	},
-	{
-		id: '4',
-		nome: 'Box The Witcher',
-		preco: 350,
-		imagem: 'produto-8.png',
-		adolescente: false,
-	},
-	{
-		id: '5',
-		nome: 'Box The Witcher',
-		preco: 350,
-		imagem: 'produto-8.png',
-		adolescente: false,
-	},
-	{
-		id: '6',
-		nome: 'Box The Witcher',
-		preco: 350,
-		imagem: 'produto-8.png',
-		adolescente: false,
-	},
-	{
-		id: '7',
-		nome: 'Box The Witcher',
-		preco: 350,
-		imagem: 'produto-8.png',
-		adolescente: false,
-	},
-	{
-		id: '8',
-		nome: 'Box The Witcher',
-		preco: 350,
-		imagem: 'produto-8.png',
-		adolescente: false,
-	},
-]
-
-const catalogoProdutos = document.getElementById("container-produto-livro");
+const catalogoProdutos = document.getElementById("container-produto");
 
 //constante que verifiaca se tem produtos no carrinho
 const idsProdutoCarrinhoComQuantidade = lerLocalStorage('carrinho') ?? {};
 
 //Função para salvar dados na memória do navegador
-function salvarLocalStorage(chave, informacao){
-    localStorage.setItem(chave, JSON.stringify(informacao));
+function salvarLocalStorage(chave, informacao) {
+	localStorage.setItem(chave, JSON.stringify(informacao));
 }
 
 //Função para ler dados da memória do navegador
-function lerLocalStorage(chave){
-    return JSON.parse(localStorage.getItem(chave));
+function lerLocalStorage(chave) {
+	return JSON.parse(localStorage.getItem(chave));
 }
 
 //Função para apagar dados na memória do navegador
-function apagarDolocalStorage(chave){
+function apagarDolocalStorage(chave) {
 	localStorage.removeItem(chave);
 }
 
@@ -150,10 +91,10 @@ function adicionarAoCarrinho(idProduto) {
 }
 
 //Função que constroi o card de produtos livros e adiciona o evento de click ao botao de adicionar ao carrinho
-function renderizarCatalogoLivros(){
-    for(const produtoCatalogo of catalogoBox){
+function renderizarCatalogo() {
+	for (const produtoCatalogo of catalogo) {
 
-        const cartaoProduto = `
+		const cartaoProduto = `
         <div id="card-produto-${produtoCatalogo.id}" class="flex flex-col w-[350px] m-2 p-2 justify-between shadow-xl shadow-slate-400 rounded-lg produto group ${produtoCatalogo.adolescente ? 'adolescente' : 'adulto'}">
             <img 
             src="./img/${produtoCatalogo.imagem}"
@@ -162,37 +103,14 @@ function renderizarCatalogoLivros(){
             >
             <h2 class="text-sm">${produtoCatalogo.nome}</h2>
             <p class="text-lg">R&#x24; ${produtoCatalogo.preco}</p>
-            <button id="adicionar-${produtoCatalogo.id}" class="bg-slate-950 text-slate-200 hover:bg-slate-800 duration-200 rounded-lg active:bg-slate-600"><i class="fa-solid fa-cart-plus"></i></button>
+            <button id="adicionar-${produtoCatalogo.id}" class="p-1 bg-amber-500 hover:bg-amber-700 duration-200 rounded-lg active:bg-amber-600"><i class="fa-solid fa-cart-plus text-black"></i></button>
         </div>`;
-        document.getElementById("container-produto-livro").innerHTML += cartaoProduto;
-    };
+		document.getElementById("container-produto").innerHTML += cartaoProduto;
+	};
 
-    for(const produtoCatalogo of catalogoBox){
-        document.getElementById(`adicionar-${produtoCatalogo.id}`).addEventListener('click', () => adicionarAoCarrinho(produtoCatalogo.id));
-    }
-}
-
-//Função que constroi o card de produtos diversos e adiciona o evento de click ao botao de adicionar ao carrinho
-function renderizarCatalogoDiversos(){
-    for(const produtoCatalogo of catalogoDiversos){
-
-        const cartaoProduto = `
-        <div id="card-produto-${produtoCatalogo.id}" class="flex flex-col w-[350px] m-2 p-2 justify-between shadow-xl shadow-slate-400 rounded-lg produto group ${produtoCatalogo.adolescente ? 'adolescente' : 'adulto'}">
-            <img 
-            src="./img/${produtoCatalogo.imagem}"
-            alt="${produtoCatalogo.nome}"
-            class="drop-shadow-md group-hover:scale-110 duration-300 my-3 w-[290px] h-[290px] self-center" 
-            >
-            <h2 class="text-sm">${produtoCatalogo.nome}</h2>
-            <p class="text-lg">R&#x24; ${produtoCatalogo.preco}</p>
-            <button id="adicionar-${produtoCatalogo.id}" class="bg-slate-950 text-slate-200 hover:bg-slate-800 duration-200 rounded-lg active:bg-slate-600"><i class="fa-solid fa-cart-plus"></i></button>
-        </div>`;
-        document.getElementById("container-produto-diversos").innerHTML += cartaoProduto;
-    };
-
-    for(const produtoCatalogo of catalogoDiversos){
-        document.getElementById(`adicionar-${produtoCatalogo.id}`).addEventListener('click', () => adicionarAoCarrinho(produtoCatalogo.id));
-    }
+	for (const produtoCatalogo of catalogo) {
+		document.getElementById(`adicionar-${produtoCatalogo.id}`).addEventListener('click', () => adicionarAoCarrinho(produtoCatalogo.id));
+	}
 }
 
 //Função que inicializa o carrinho
@@ -209,58 +127,58 @@ function inicializarCarrinho() {
 //Função para fechar o carrinho
 function fecharCarrinho() {
 	document.getElementById('carrinho').classList.remove('right-0');
-	document.getElementById('carrinho').classList.add('right-[-370px]');
+	document.getElementById('carrinho').classList.add('right-[-400px]');
 }
 
 //Função para abrir o carrinho
 function abrirCarrinho() {
-	document.getElementById('carrinho').classList.remove('right-[-370px]');
+	document.getElementById('carrinho').classList.remove('right-[-400px]');
 	document.getElementById('carrinho').classList.add('right-0');
 }
 
 
 //Função que leva para a página de checkout após apertar o botão de "finalizar compra"
-function irParaCheckout(){
-	if(Object.keys(idsProdutoCarrinhoComQuantidade).length === 0){
+function irParaCheckout() {
+	if (Object.keys(idsProdutoCarrinhoComQuantidade).length === 0) {
 		return;
 	}
 	window.location.href = 'http://127.0.0.1:5500/ecomerce/checkout.html';
 }
 
 //Função que inicializa os filtros
-function inicializarFiltros(){
-    document.getElementById('exibir-todos').addEventListener('click', exibirTodos);
-    document.getElementById('exibir-adolescentes').addEventListener('click', esconderAdultos);
-    document.getElementById('exibir-adultos').addEventListener('click', esconderAdolescentes);
+function inicializarFiltros() {
+	document.getElementById('exibir-todos').addEventListener('click', exibirTodos);
+	document.getElementById('exibir-adolescentes').addEventListener('click', esconderAdultos);
+	document.getElementById('exibir-adultos').addEventListener('click', esconderAdolescentes);
 }
 
 //Função que exibe todos os produtos no filtro "Todos"
-function exibirTodos(){
-    const produtosEscondidos = Array.from(catalogoProdutos.getElementsByClassName('hidden'));
+function exibirTodos() {
+	const produtosEscondidos = Array.from(catalogoProdutos.getElementsByClassName('hidden'));
 
-    for(const produto of produtosEscondidos){
-        produto.classList.remove('hidden');
-    }
+	for (const produto of produtosEscondidos) {
+		produto.classList.remove('hidden');
+	}
 }
 
 //Função que esconde os livros "Adultos"
-function esconderAdultos(){
-    exibirTodos();
-    const produtosAdultos = Array.from(catalogoProdutos.getElementsByClassName('adulto'));
+function esconderAdultos() {
+	exibirTodos();
+	const produtosAdultos = Array.from(catalogoProdutos.getElementsByClassName('adulto'));
 
-    for(const produto of produtosAdultos){
-        produto.classList.add('hidden');
-    }
+	for (const produto of produtosAdultos) {
+		produto.classList.add('hidden');
+	}
 }
 
 //Função que esconde os livros "Adolescentes"
-function esconderAdolescentes(){
-    exibirTodos();
-    const produtosAdolescentes = Array.from(catalogoProdutos.getElementsByClassName('adolescente'));
+function esconderAdolescentes() {
+	exibirTodos();
+	const produtosAdolescentes = Array.from(catalogoProdutos.getElementsByClassName('adolescente'));
 
-    for(const produto of produtosAdolescentes){
-        produto.classList.add('hidden');
-    }
+	for (const produto of produtosAdolescentes) {
+		produto.classList.add('hidden');
+	}
 }
 
 //Função responsável por mostrar ou não os produtos do carrinho
@@ -280,7 +198,7 @@ function desenharProdutoNoCarrinho(idProduto) {
 
 	const elementoArticle = document.createElement('article');
 
-	const articleClasses = ['flex', 'bg-slate-100', 'rounded-lg', 'relative'];
+	const articleClasses = ['flex', 'bg-stone-200', 'rounded-lg', 'relative'];
 
 	for (const articleClass of articleClasses) {
 		elementoArticle.classList.add(articleClass);
@@ -288,22 +206,20 @@ function desenharProdutoNoCarrinho(idProduto) {
 
 	const cartaoProdutoCarrinho = `
         <button id="remover-item-${produto.id}">
-            <i class="fa-solid fa-circle-xmark text-slate-500 absolute right-[10px] top-[40px] hover:text-slate-900 duration-300"></i>
+            <i class="fa-solid fa-circle-xmark text-amber-600 absolute right-[10px] top-[40px] hover:text-amber-900 duration-300"></i>
         </button>
 
         <img src="./img/${produto.imagem}" alt="Carrinho: ${produto.nome}" class="w-24 h-24 rounded-lg p-2 imagem-carrinho">
 
         <div class="py-2 flex flex-col justify-between">
             <p class="text-slate-900 text-sm">${produto.nome}</p>
-            <p class="text-green-800 text-lg">R$ ${produto.preco}</p>
+            <p class="text-green-800 text-lg font-semibold">R$ ${produto.preco}</p>
         </div>
 
         <div class="flex items-end text-slate-950 absolute bottom-0 right-5 gap-4 text-lg">
-            <button id="decrementar-produto-${produto.id}">-</button>
-            <p id="quantidade-${produto.id}">${
-		idsProdutoCarrinhoComQuantidade[produto.id]
-	}</p>
-            <button id="incrementar-produto-${produto.id}">+</button>
+            <button class="text-xl" id="decrementar-produto-${produto.id}">-</button>
+            <p id="quantidade-${produto.id}" class="font-medium">${idsProdutoCarrinhoComQuantidade[produto.id]}</p>
+            <button class="text-xl" id="incrementar-produto-${produto.id}">+</button>
         </div>`;
 
 	elementoArticle.innerHTML = cartaoProdutoCarrinho;
@@ -320,7 +236,7 @@ function desenharProdutoNoCarrinho(idProduto) {
 //Função que remove itens do carrinho
 function removerDoCarrinho(idProduto) {
 	delete idsProdutoCarrinhoComQuantidade[idProduto];
-    salvarLocalStorage('carrinho', idsProdutoCarrinhoComQuantidade);
+	salvarLocalStorage('carrinho', idsProdutoCarrinhoComQuantidade);
 	atualizarPrecoCarrinho();
 	renderizarProdutosCarrinho();
 }
@@ -328,7 +244,7 @@ function removerDoCarrinho(idProduto) {
 //Função que adiciona itens pelo carrinho
 function incrementarQuantidadeProduto(idProduto) {
 	idsProdutoCarrinhoComQuantidade[idProduto]++;
-    salvarLocalStorage('carrinho', idsProdutoCarrinhoComQuantidade);
+	salvarLocalStorage('carrinho', idsProdutoCarrinhoComQuantidade);
 	atualizarPrecoCarrinho();
 	atualizarInformacaoQunatidade(idProduto);
 }
@@ -340,7 +256,7 @@ function decrementarQuantidadeProduto(idProduto) {
 		return;
 	}
 	idsProdutoCarrinhoComQuantidade[idProduto]--;
-    salvarLocalStorage('carrinho', idsProdutoCarrinhoComQuantidade);
+	salvarLocalStorage('carrinho', idsProdutoCarrinhoComQuantidade);
 	atualizarPrecoCarrinho();
 	atualizarInformacaoQunatidade(idProduto);
 }
@@ -358,11 +274,11 @@ function atualizarPrecoCarrinho() {
 	for (const idProdutoNoCarrinho in idsProdutoCarrinhoComQuantidade) {
 		precoTotalCarrinho += catalogo.find((p) => p.id === idProdutoNoCarrinho).preco * idsProdutoCarrinhoComQuantidade[idProdutoNoCarrinho];
 	}
+	precoTotalCarrinho = precoTotalCarrinho.toFixed(2); // Arredonda o preço total para duas casas decimais
 	precoCarrinho.innerText = `Total: R$ ${precoTotalCarrinho}`;
 }
 
-renderizarCatalogoLivros();
-renderizarCatalogoDiversos();
+renderizarCatalogo();
 inicializarCarrinho();
 renderizarProdutosCarrinho();
 atualizarPrecoCarrinho()

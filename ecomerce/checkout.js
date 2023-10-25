@@ -3,14 +3,14 @@ const catalogo = [
 	{
 		id: '1',
 		nome: 'Box Senhor dos Anéis + O Hobbit',
-		preco: 165,
+		preco: 165.90,
 		imagem: 'produto-1.png',
 		adolescente: false,
 	},
 	{
 		id: '2',
 		nome: 'Box Harry Potter completa',
-		preco: 365,
+		preco: 365.80,
 		imagem: 'produto-2.png',
 		adolescente: false,
 	},
@@ -31,14 +31,14 @@ const catalogo = [
 	{
 		id: '5',
 		nome: 'Box As Crônicas de Gelo e Fogo',
-		preco: 550,
+		preco: 550.55,
 		imagem: 'produto-5.png',
 		adolescente: false,
 	},
 	{
 		id: '6',
 		nome: 'Box Diário De Um Banana - 10 Volumes',
-		preco: 288.5,
+		preco: 288.55,
 		imagem: 'produto-6.png',
 		adolescente: true,
 	},
@@ -52,7 +52,7 @@ const catalogo = [
 	{
 		id: '8',
 		nome: 'Box The Witcher',
-		preco: 350,
+		preco: 350.99,
 		imagem: 'produto-8.png',
 		adolescente: false,
 	},
@@ -148,6 +148,37 @@ function finalizarCompra(event){
     apagarDolocalStorage('carrinho');
 
     window.location.href = 'http://127.0.0.1:5500/ecomerce/pedidos.html';
+}
+
+function buscaCep(){
+	let cepInput = document.getElementById("cep").value;
+
+	if(cepInput !== ""){
+		let url = `https://brasilapi.com.br/api/cep/v1/${cepInput}`;
+
+		let req = new XMLHttpRequest();
+		req.open("GET", url);
+		req.send();
+
+		//Trata a resposata da requisição
+		req.onload = function() {
+			if(req.status === 200){
+				let endereco = JSON.parse(req.response);
+				document.getElementById("cidade").value = endereco.city;
+				document.getElementById("estado").value = endereco.state;
+				document.getElementById("rua").value = endereco.street;
+			} else if(req.status === 404){
+				console.log("CEP inválido");
+			} else {
+				console.log("Erro ao fazer a requisição");
+			}
+		}
+	}
+}
+
+window.onload = function () {
+	let txtCep = document.getElementById("cep");
+	txtCep.addEventListener("blur", buscaCep);
 }
 
 desenharProdutosCheckout();

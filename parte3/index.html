@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Exemplo Prático 1: Busca de Dados de uma API REST</title>
+</head>
+
+<body>
+  <h1>Exemplo Prático 1: Busca de Dados de uma API REST</h1>
+
+  <div>
+    <label for="cep">CEP</label>
+    <input type="text" id="cep">
+    <button id="buscarCep">Buscar CEP</button>
+  </div>
+
+  <div id="resultado"></div>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const buscarCepButton = document.getElementById("buscarCep");
+
+      buscarCepButton.addEventListener("click", function () {
+        const cepInput = document.getElementById("cep");
+        const resultadoDiv = document.getElementById("resultado");
+        const cep = cepInput.value.replace(/\D/g, ''); // Remova caracteres não numéricos
+
+        if (cep.length === 8) {
+          const apiUrl = `https://brasilapi.com.br/api/cep/v1/${cep}`;
+
+          fetch(apiUrl)
+            .then((response) => {
+              if (!response.ok) {
+                throw new Error('Erro na solicitação');
+              }
+              return response.json();
+            })
+            .then((data) => {
+              const result = data.result;
+
+              resultadoDiv.innerHTML = `
+                <div class="flex">
+                  <p>Logradouro: ${result.street}</p>
+                  <p>Bairro: ${result.district}</p>
+                </div>
+                <p>Cidade: ${result.city}</p>
+                <p>Estado: ${result.state}</p>
+                `;
+            })
+            .catch((error) => {
+              console.error(error);
+            });
+        }
+      });
+    });
+  </script>
+</body>
+
+</html>
