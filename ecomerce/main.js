@@ -95,7 +95,7 @@ function renderizarCatalogo() {
 	for (const produtoCatalogo of catalogo) {
 
 		const cartaoProduto = `
-        <div id="card-produto-${produtoCatalogo.id}" class="flex flex-col w-[350px] m-2 p-2 justify-between shadow-xl shadow-slate-400 rounded-lg produto group ${produtoCatalogo.adolescente ? 'adolescente' : 'adulto'}">
+        <div id="card-produto-${produtoCatalogo.id}" class="swiper-slide flex flex-col w-[350px] m-2 p-2 justify-between shadow-xl shadow-slate-400 rounded-lg produto group ${produtoCatalogo.adolescente ? 'adolescente' : 'adulto'}">
             <img 
             src="./img/${produtoCatalogo.imagem}"
             alt="${produtoCatalogo.nome}"

@@ -119,7 +119,7 @@
     <main id="conteudo" class="flex flex-col items-center">
 
         <!-- Divisão que abriga a framework swiper.js Swiper Top -->
-        <div class="swiper w-11/12 m-16 rounded-lg">
+        <div class="swiper banners w-11/12 m-16 rounded-lg">
             <div class="swiper-wrapper w-full rounded-lg">
                 <!-- Slides -->
                 <div class="swiper-slide flex justify-center"><img class="lg:h-[450px] rounded-lg w-full"
@@ -154,12 +154,17 @@
 
         <section id="secao1" class="w-full h-[600px] flex justify-center items-center overflow-auto mb-10">
             <!-- Seção destinada a conter os containers dos produtos do ecommerce gerado dinâmicamente pelo Js -->
-            <div id="container-produto" class="h-[500px] flex justify-center gap-10"></div>
+            <div class="swiper vitrine">
+                <div id="container-produto" class="swiper-wrapper"></div>
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-pagination"></div>
+            </div>
         </section>
 
         <section id="secao3" class="w-full flex justify-center">
             <!-- Divisão que abriga a framework swiper.js Swiper Bootom-->
-            <div class="swiper w-11/12 m-16 rounded-lg">
+            <div class="swiper banners w-11/12 m-16 rounded-lg">
                 <div class="swiper-wrapper w-full rounded-lg">
                     <!-- Slides -->
                     <div class="swiper-slide flex justify-center"><img class="lg:h-[450px] rounded-lg w-full"
@@ -175,7 +180,7 @@
         </section>
         <!-- Script dos Swipers -->
         <script>
-            const swiper = new Swiper('.swiper', {
+            const swiper = new Swiper('.banners', {
                 // Parâmetros opcionais
                 direction: 'horizontal',
                 loop: true,
@@ -192,6 +197,36 @@
                     delay: 5000,
                     disableOnInteraction: false,
                 },
+            });
+
+            const swiper2 = new Swiper('.vitrine', {
+                slidesPerView: 4,
+                spaceBetween: 10,
+                pagination: {
+                    el: ".swiper-pagination",
+                    clickable: true,
+                },
+                
+                navigation: {
+                    nextEl: ".swiper-button-next",
+                    prevEl: ".swiper-button-prev",
+                },
+
+                breakpoints: {
+                    640: {
+                    slidesPerView: 2,
+                    spaceBetween: 20,
+                    },
+                    768: {
+                    slidesPerView: 4,
+                    spaceBetween: 40,
+                    },
+                    1024: {
+                    slidesPerView: 5,
+                    spaceBetween: 50,
+                    },
+                },
+
             });
         </script>
     </main>
